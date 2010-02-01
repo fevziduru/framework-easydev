@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EasyDev.Office.Excel.CheckBoxValueExtractor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Office\Excel\CheckBoxValueExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.Office.Excel.ComboBoxValueExtractor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Office\Excel\ComboBoxValueExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.Office.Excel.ExcelExtractor" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAICAAAQAAAAAAAAAAAAAAAAAAAABADAAAAAA=</HashCode>
+      <FileName>Office\Excel\ExcelExtractor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.Office.Excel.ExcelExtractorFactory">
+    <Position X="6.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Office\Excel\ExcelExtractorFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.Office.Excel.RadioBoxValueExtractor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Office\Excel\RadioBoxValueExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.Office.Excel.TextBoxValueExtractor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Office\Excel\TextBoxValueExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.Office.Excel.ValueExtractor" Collapsed="true">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Office\Excel\ValueExtractor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="EasyDev.Office.Excel.IValueExtractor">
+    <Position X="0.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Office\Excel\IValueExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Resources culture="zh-CN">
+  <ResourceItem>
+    <Key>_user_not_exist</Key>
+    <Value>用户不存在</Value>
+  </ResourceItem>
+</Resources>
