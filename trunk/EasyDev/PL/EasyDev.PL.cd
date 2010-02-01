@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EasyDev.PL.SqlBuilder" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgABAAACAAAAAAAAAAAAAAEAAAEAAAAQIAAAACAgAA=</HashCode>
+      <FileName>PL\Builder\SqlBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.PL.DataSourceManager" Collapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PL\DataSources\DataSourceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.PL.DataSourceObject" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAKAAAAAAAAAABAAAAAAAAAAQAAQAACAAAAAQAAA=</HashCode>
+      <FileName>PL\DataSources\DataSourceObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.DALCoreException" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PL\Exceptions\DALCoreException.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.PersistenceException" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PL\Exceptions\PersistenceException.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.CommonIdentityGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>PL\IdentityStrategy\CommonIdentityGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.OracleSequenceGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAUAAAAA=</HashCode>
+      <FileName>PL\IdentityStrategy\OracleSequenceGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.GeneratorFactory" Collapsed="true">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PL\IdentityStrategy\GeneratorFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.DAL.AccessSession" Collapsed="true">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAFAAAAAAAACAAEAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>PL\Sessions\AccessSession.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.OracleSession" Collapsed="true">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAFAAAAAAAACAAEAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>PL\Sessions\OracleSession.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.DBSessionBase" Collapsed="true">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAAAAAFIAAAQC0ACAIEAAAAAAAAAAAgADABgBAABBQ=</HashCode>
+      <FileName>PL\Sessions\DBSessionBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.DBSessionManager" Collapsed="true">
+    <Position X="9" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PL\Sessions\DBSessionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasyDev.PL.GenericDBSession" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>qIAIAAABoAAAQj0ABAIABAAAAgAAAAAgQDABgAIABAQ=</HashCode>
+      <FileName>PL\Sessions\GenericDBSession.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.PL.MSSqlSession" Collapsed="true">
+    <Position X="7.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAFAAAAAAAACAAEAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>PL\Sessions\MSSqlSession.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EasyDev.DAL.GenericDBFactory" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAABAAAAAEAAAAAAFAAAAAABQAAAAAAQCAk=</HashCode>
+      <FileName>PL\GenericDBFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="EasyDev.PL.IDataSourceObject" Collapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAABAAAAAAAAAAQAAQAACAAAAAAAAA=</HashCode>
+      <FileName>PL\DataSources\IDataSourceObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EasyDev.PL.IGenerator" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>PL\IdentityStrategy\IGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EasyDev.PL.IDBSession" Collapsed="true">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAACAIEAAAAAAAAAAAAADAAgAAAAAA=</HashCode>
+      <FileName>PL\Sessions\IDBSession.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EasyDev.PL.IDBSessionManager" Collapsed="true">
+    <Position X="2.5" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PL\Sessions\IDBSessionManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EasyDev.PL.IGenericDBSession" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAIAAAAAAAAQAAABAIAAAAAAAAAAAAAQDABgAAAAAQ=</HashCode>
+      <FileName>PL\Sessions\IGenericDBSession.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="EasyDev.DAL.AssemblyNameSource" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PL\GenericDBFactory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

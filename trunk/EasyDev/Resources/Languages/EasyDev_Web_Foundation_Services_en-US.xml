@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Resources culture="en-US">
+  <ResourceItem>
+    <Key>_user_not_exist</Key>
+    <Value>The user is not exist.</Value>
+  </ResourceItem>
+</Resources>

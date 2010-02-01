@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A18AA3B5-C973-4193-8421-82D191C8966D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EasyDev</RootNamespace>
+    <AssemblyName>EasyDev</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>EasyDev.pfx</AssemblyOriginatorKeyFile>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\EasyDev.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetFetion, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\DotNetFetion.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Vbe.Interop.Forms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Oracle.DataAccess, Version=2.102.2.20, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <HintPath>..\Library\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\Microsoft ASP.NET\ASP.NET MVC RC\Assemblies\System.Web.Abstractions.dll</HintPath>
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\Microsoft ASP.NET\ASP.NET MVC RC\Assemblies\System.Web.Routing.dll</HintPath>
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Applications\EPS\BusinessObject\AbstractBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\BOFactory.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\GenericBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\GenericList\ListBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\GenericList\ListColumnBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\IBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\ModelNotFoundException.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\ModelNullException.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\ParameterizedCommandBuilder.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\Portal\PartBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\Portal\SchemaBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\Portal\ZoneBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\Security\PermissionBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\Security\RoleBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\Security\UserBO.cs" />
+    <Compile Include="Applications\EPS\BusinessObject\SQLBuilder.cs" />
+    <Compile Include="Applications\EPS\Controller\AuthenticationController.cs" />
+    <Compile Include="Applications\EPS\Controller\EnsureLoginAttribute.cs" />
+    <Compile Include="Applications\EPS\Controller\GenericController.cs" />
+    <Compile Include="Applications\EPS\Model\AbstractModel.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\DatabaseNameAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\DisplayNameAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\EmailValidatorAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\KeyPropertyAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\ListVisibleAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\NumberRangeValidatorAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\RegularExpressionValidatorAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\RequiredValidatorAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\UrlValidatorAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\Attributes\ValidatorAttribute.cs" />
+    <Compile Include="Applications\EPS\Model\CommandExpressionException.cs" />
+    <Compile Include="Applications\EPS\Model\GenericList\List.cs" />
+    <Compile Include="Applications\EPS\Model\GenericList\ListColumn.cs" />
+    <Compile Include="Applications\EPS\Model\IModel.cs" />
+    <Compile Include="Applications\EPS\Model\IValidator.cs" />
+    <Compile Include="Applications\EPS\Model\ModelFactory.cs" />
+    <Compile Include="Applications\EPS\Model\Portal\Part.cs" />
+    <Compile Include="Applications\EPS\Model\Portal\Schema.cs" />
+    <Compile Include="Applications\EPS\Model\Portal\Zone.cs" />
+    <Compile Include="Applications\EPS\Model\Security\Permissions.cs" />
+    <Compile Include="Applications\EPS\Model\Security\Right.cs" />
+    <Compile Include="Applications\EPS\Model\Security\Roles.cs" />
+    <Compile Include="Applications\EPS\Model\Security\UserInRole.cs" />
+    <Compile Include="Applications\EPS\Model\Security\Users.cs" />
+    <Compile Include="Applications\EPS\Service\AbstractService.cs" />
+    <Compile Include="Applications\EPS\Service\GenericList\GenericListEventArgs.cs" />
+    <Compile Include="Applications\EPS\Service\GenericList\GenericListService.cs" />
+    <Compile Include="Applications\EPS\Service\GenericList\GenericListServiceException.cs" />
+    <Compile Include="Applications\EPS\Service\GenericList\IListDataService.cs" />
+    <Compile Include="Applications\EPS\Service\IService.cs" />
+    <Compile Include="Applications\EPS\Service\Portal\IPortalDataService.cs" />
+    <Compile Include="Applications\EPS\Service\Portal\PortalService.cs" />
+    <Compile Include="Applications\EPS\Service\Portal\PortalServiceException.cs" />
+    <Compile Include="Applications\EPS\Service\Security\InvalidUserException.cs" />
+    <Compile Include="Applications\EPS\Service\Security\PermissionService.cs" />
+    <Compile Include="Applications\EPS\Service\Security\RoleService.cs" />
+    <Compile Include="Applications\EPS\Service\Security\SecurityService.cs" />
+    <Compile Include="Applications\EPS\Service\Security\UserLoginService.cs" />
+    <Compile Include="Applications\EPS\Service\Security\UserService.cs" />
+    <Compile Include="Applications\EPS\Service\ServiceFactory.cs" />
+    <Compile Include="Applications\SQMS\HttpHandlers\FrontHandler.cs" />
+    <Compile Include="Applications\SQMS\HttpHandlers\FrontHandlerFactory.cs" />
+    <Compile Include="Applications\SQMS\HttpModules\PermissionModule.cs" />
+    <Compile Include="Applications\SQMS\IPortalPartService.cs" />
+    <Compile Include="Applications\SQMS\PassportPrincipal.cs" />
+    <Compile Include="Applications\SQMS\PassportService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Applications\SQMS\UserIdentity.cs" />
+    <Compile Include="Applications\SQMS\UserInfo.cs" />
+    <Compile Include="BL\Extensions\GenericServiceExtension.cs" />
+    <Compile Include="BL\Services\AbstractServiceManager.cs" />
+    <Compile Include="BL\Services\IDataValidator.cs" />
+    <Compile Include="BL\Services\ServicePool.cs" />
+    <Compile Include="BL\Services\ServiceValidationException.cs" />
+    <Compile Include="BL\BizObjectFactory.cs" />
+    <Compile Include="BL\GenericBizObject.cs" />
+    <Compile Include="BL\IGenericBizObject.cs" />
+    <Compile Include="BL\Services\GenericService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BL\Services\IService.cs" />
+    <Compile Include="BL\Services\IServiceManager.cs" />
+    <Compile Include="BL\Services\NativeServiceManager.cs" />
+    <Compile Include="BL\Services\RemotingServiceManager.cs" />
+    <Compile Include="BL\Services\ServiceManagerFactory.cs" />
+    <Compile Include="Cache\CacheFactory.cs" />
+    <Compile Include="Cache\CacheItem.cs" />
+    <Compile Include="Cache\CacheManager.cs" />
+    <Compile Include="Common\ExceptionBase.cs" />
+    <Compile Include="Common\IException.cs" />
+    <Compile Include="Common\Lock.cs" />
+    <Compile Include="Configuration\Exceptions\ConfigException.cs" />
+    <Compile Include="Configuration\PLConfig\DataSource.cs" />
+    <Compile Include="Configuration\PLConfig\IDataSource.cs" />
+    <Compile Include="Configuration\PLConfig\PersistenceConfigManager.cs" />
+    <Compile Include="Configuration\ResourceConfig\ResourceItemConfig.cs" />
+    <Compile Include="Configuration\ResourceConfig\ResourcesConfigManager.cs" />
+    <Compile Include="Expressions\ExpressionVisitor.cs" />
+    <Compile Include="Expressions\ParameterReplacer.cs" />
+    <Compile Include="Expressions\SpecificationExpressionExtensions.cs" />
+    <Compile Include="Office\Excel\CheckBoxValueExtractor.cs" />
+    <Compile Include="Office\Excel\ComboBoxValueExtractor.cs" />
+    <Compile Include="Office\Excel\ExcelExtractor.cs" />
+    <Compile Include="Office\Excel\ExcelExtractorFactory.cs" />
+    <Compile Include="Office\Excel\IValueExtractor.cs" />
+    <Compile Include="Office\Excel\RadioBoxValueExtractor.cs" />
+    <Compile Include="Office\Excel\TextBoxValueExtractor.cs" />
+    <Compile Include="Office\Excel\ValueExtractor.cs" />
+    <Compile Include="PL\Builder\SqlBuilder.cs" />
+    <Compile Include="PL\DataSources\DataSourceManager.cs" />
+    <Compile Include="PL\DataSources\DataSourceObject.cs" />
+    <Compile Include="PL\DataSources\IDataSourceObject.cs" />
+    <Compile Include="PL\Exceptions\DALCoreException.cs" />
+    <Compile Include="PL\Exceptions\PersistenceException.cs" />
+    <Compile Include="PL\Extensions\ADOExtension.cs" />
+    <Compile Include="PL\GenericDBFactory.cs" />
+    <Compile Include="PL\IdentityStrategy\CommonIdentityGenerator.cs" />
+    <Compile Include="PL\IdentityStrategy\GeneratorFactory.cs" />
+    <Compile Include="PL\IdentityStrategy\IdentityGenerator.cs" />
+    <Compile Include="PL\IdentityStrategy\IGenerator.cs" />
+    <Compile Include="PL\IdentityStrategy\OracleSequenceGenerator.cs" />
+    <Compile Include="PL\Sessions\DBSessionManager.cs" />
+    <Compile Include="PL\Sessions\GenericDBSession.cs" />
+    <Compile Include="PL\Sessions\IGenericDBSession.cs" />
+    <Compile Include="Presentation\Actions\ActionFactory.cs" />
+    <Compile Include="Presentation\Actions\GenericAction.cs" />
+    <Compile Include="Presentation\Actions\IAction.cs" />
+    <Compile Include="Presentation\Actions\OperationEventArgs.cs" />
+    <Compile Include="Presentation\GenericMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\GenericPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\GenericUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\UI\WebControls\Design\DropDownTreeDesign.cs" />
+    <Compile Include="Presentation\UI\WebControls\DropDownTree.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Globalization\GlobalizationManager.cs" />
+    <Compile Include="Resources\Globalization\Globalizer.cs" />
+    <Compile Include="Resources\Globalization\GlobalizerBase.cs" />
+    <Compile Include="Resources\Globalization\IGlobalizer.cs" />
+    <Compile Include="Resources\GlobalizeException.cs" />
+    <Compile Include="Resources\IResourceManager.cs" />
+    <Compile Include="Resources\ResourceManagerBase.cs" />
+    <Compile Include="Resources\ResourceManagerFactory.cs" />
+    <Compile Include="Resources\StandardResourceManager.cs" />
+    <Compile Include="Resources\XmlResourceManager.cs" />
+    <Compile Include="Security\IUserAuthentication.cs" />
+    <Compile Include="Security\Principal.cs" />
+    <Compile Include="Security\UserAuthentication.cs" />
+    <Compile Include="Security\UserIdentity.cs" />
+    <Compile Include="Security\UserInfo.cs" />
+    <Compile Include="Security\UserSecurityException.cs" />
+    <Compile Include="Security\UserSecurityManager.cs" />
+    <Compile Include="Util\CompressException.cs" />
+    <Compile Include="Util\CompressUtil.cs" />
+    <Compile Include="Util\ConvertException.cs" />
+    <Compile Include="Util\ConvertUtil.cs" />
+    <Compile Include="Util\DataSetUtil.cs" />
+    <Compile Include="Util\Extensions\UtilityExtension.cs" />
+    <Compile Include="Util\ExtractException.cs" />
+    <Compile Include="Util\MailUtil.cs" />
+    <Compile Include="Util\SerializeUtil.cs" />
+    <Compile Include="Util\StreamUtil.cs" />
+    <Compile Include="Util\TimeUnit.cs" />
+    <Compile Include="Util\TypeUtil.cs" />
+    <Compile Include="Util\XmlUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Languages\Default\GenericService.en-US.resx" />
+    <EmbeddedResource Include="Resources\Languages\Default\GenericService.zh-CN.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Presentation\UI\WebControls\Resources\Scripts\DropDownTree.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UI\WebControls\DropDownTree.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UI\WebControls\Resources\Styles\DropDownTree.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UI\WebControls\Resources\Images\dropdown_normal.bmp">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UI\WebControls\Resources\Images\dropdown_pressed.bmp">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UI\WebControls\Resources\Images\quicknew.bmp">
+    </EmbeddedResource>
+    <Content Include="logo.png" />
+    <Content Include="Resources\Languages\EasyDev_Web_Foundation_Services_en-US.xml" />
+    <Content Include="Resources\Languages\EasyDev_Web_Foundation_Services_zh-CN.xml" />
+    <Content Include="Resources\Languages\GenericService_en-US.xml" />
+    <Content Include="Resources\Languages\GenericService_zh-CN.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EasyDev.pfx" />
+    <None Include="Office\Excel\ClassDiagram1.cd" />
+    <None Include="PL\EasyDev.PL.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BL\Exceptions\" />
+    <Folder Include="PL\Query\" />
+    <Folder Include="Presentation\Common\" />
+    <Folder Include="Presentation\Filters\" />
+    <Folder Include="Presentation\Handlers\" />
+    <Folder Include="Presentation\Portal\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

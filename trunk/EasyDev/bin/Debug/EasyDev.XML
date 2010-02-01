@@ -1,0 +1,4578 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyDev</name>
+    </assembly>
+    <members>
+        <member name="T:EasyDev.Office.Excel.ExcelExtractorFactory">
+            <summary>
+            Extractor factory
+            </summary>
+        </member>
+        <member name="T:EasyDev.Configuration.ResourcesConfigManager">
+            <summary>
+            资源配置管理器
+            </summary>
+        </member>
+        <member name="F:EasyDev.Configuration.ResourcesConfigManager.configPath">
+            <summary>
+            配置文件位置
+            </summary>
+        </member>
+        <member name="F:EasyDev.Configuration.ResourcesConfigManager.resources">
+            <summary>
+            资源配置集合
+            </summary>
+        </member>
+        <member name="M:EasyDev.Configuration.ResourcesConfigManager.GetInstance">
+            <summary>
+            取得资源管理器实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Configuration.ResourcesConfigManager.GetResourceItemByName(System.String)">
+            <summary>
+            根据名称取得资源对象
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Configuration.ResourcesConfigManager.IsResourceItemExist(System.String)">
+            <summary>
+            判断对应名称的资源配置项在配置中是否存在
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Configuration.DataSource">
+            <summary>
+            数据源对象
+            </summary>
+        </member>
+        <member name="T:EasyDev.Configuration.IDataSource">
+            <summary>
+            数据源对象公共接口
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.IDataSource.Name">
+            <summary>
+            数据源名称
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.IDataSource.ProviderType">
+            <summary>
+            数据源提供程序类型
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.IDataSource.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.DataSource.Name">
+            <summary>
+            数据源名称
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.DataSource.ProviderType">
+            <summary>
+            提供程序类型
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.DataSource.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="T:EasyDev.BL.GenericService">
+            <summary>
+            通用服务,封装常用的数据操作
+            </summary>
+        </member>
+        <member name="T:EasyDev.BL.IService">
+            <summary>
+            服务公共接口
+            </summary>
+        </member>
+        <member name="F:EasyDev.BL.GenericService.bizObject">
+            <summary>
+            业务对象
+            </summary>
+        </member>
+        <member name="F:EasyDev.BL.GenericService.boFactory">
+            <summary>
+            业务对象工厂
+            </summary>
+        </member>
+        <member name="F:EasyDev.BL.GenericService.serviceManager">
+            <summary>
+            本地服务管理器
+            </summary>
+        </member>
+        <member name="F:EasyDev.BL.GenericService.resMgrFactory">
+            <summary>
+            本地化/国际化对象创建工厂
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.GetSession(System.String)">
+            <summary>
+            根据名称创建数据库SESSION
+            </summary>
+            <param name="name">配置文件中的SESSION名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.GetPubSession">
+            <summary>
+            取得公共库SESSION
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:EasyDev.BL.GenericService.GetSession(System.Linq.Expressions.Expression{System.Func{System.Data.DataRow,System.Boolean}})" -->
+        <member name="M:EasyDev.BL.GenericService.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.Initialize">
+            <summary>
+            服务初始化
+            TODO:SESSION名称待重构
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.LoadByKey(System.Object)">
+            <summary>
+            根据单主键加载数据
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.LoadByKey(System.Object,System.Boolean)">
+            <summary>
+            根据单主键加载数据
+            </summary>
+            <param name="key">主键值</param>
+            <param name="isCreateNew">是否创建新行</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.LoadByKeys(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            根据多主键加载数据
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.LoadByKeys(System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+            根据多主键加载数据
+            </summary>
+            <param name="keys">主键值集合</param>
+            <param name="isCreateNew">是否创建新行</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.Create">
+            <summary>
+            创建新行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.Save(System.Data.DataSet)">
+            <summary>
+            通用保存方法，保存与当前BOName指定的数据表相关的数据
+            </summary>
+            <param name="dsSave"></param>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.LoadAll">
+            <summary>
+            加载所有数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.LoadViewByName(System.String)">
+            <summary>
+            加载视图
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.DeleteByKey(System.Object)">
+            <summary>
+            根据主键值删除数据
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.DeleteByKeys(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            删除由多主属性构成的数据表数据
+            </summary>
+            <param name="keys"></param>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.DeleteByCondition(System.String)">
+            <summary>
+            根据条件删除数据
+            </summary>
+            <param name="condition">删除条件，语法同SQL中的WHERE，但不带WHERE关键字</param>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.LoadByCondition(System.String)">
+            <summary>
+            按条件加载
+            </summary>
+            <param name="cond">加载条件，语法同SQL中的WHERE，但不带WHERE关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.GetNextSequenceID">
+            <summary>
+            取下一个ORACLE序列号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.GetReferenceValue(EasyDev.PL.GenericDBSession,System.String,System.String,System.String,System.String)">
+            <summary>
+            取得引用表字段数据
+            </summary>
+            <param name="session">数据库会话对象</param>
+            <param name="refTextField">引用的文本字段</param>
+            <param name="refTable">引用数据表</param>
+            <param name="refKey">引用字段</param>
+            <param name="refValue">引用数据值</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.GetReferenceValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            取得引用表字段数据
+            </summary>
+            <param name="refTextField">引用的文本字段</param>
+            <param name="refTable">引用数据表</param>
+            <param name="refKey">引用字段</param>
+            <param name="refValue">引用数据值</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.GenerateCode">
+            <summary>
+            生成编号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericService.Validate(System.Data.DataSet)">
+            <summary>
+            默认验证方法
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.BL.GenericService.SessionPool">
+            <summary>
+            数据库会话缓存
+            </summary>
+        </member>
+        <member name="E:EasyDev.BL.GenericService.Validation">
+            <summary>
+            验证事件
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericService.CurrentUser">
+            <summary>
+            当前登录的用户信息
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericService.ResourceManagerCreator">
+            <summary>
+            本地化/国际化对象
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericService.ServiceManager">
+            <summary>
+            服务管理器
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericService.BOName">
+            <summary>
+            业务对象名称
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericService.ResourceManager">
+            <summary>
+            资源管理器
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericService.SessionName">
+            <summary>
+            会话名称
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericService.DefaultSession">
+            <summary>
+            默认数据库会话对象，这个默认会话对象由EasyDev.Persistence.Config文件的DataSources结点的Default属性指定
+            </summary>
+        </member>
+        <member name="T:EasyDev.EPS.BusinessObject.GenericBO`1">
+            <summary>
+            通用业务对象，此对象中使用的会话对象是默认会话对象
+            </summary>
+            <typeparam name="TModel">业务对象对应的模型对象类型</typeparam>
+        </member>
+        <member name="T:EasyDev.EPS.BusinessObject.AbstractBO">
+            <summary>
+            业务对象的抽象基类
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.AbstractBO.GetSessionByName(System.String)">
+            <summary>
+            根据SESSION名称取得会话对象
+            SESSION名称与数据源配置文件中的数据源配置名称对应
+            </summary>
+            <param name="sessionName">会话名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.AbstractBO.Initialize">
+            <summary>
+            初始化方法
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.AbstractBO.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.AbstractBO.GetNextSequenceId(System.String)">
+            <summary>
+            取得当前最大的SQU值，用于ORACLE数据库，ORACLE数据库中的SEQUENCE对象必须以SEQ_{表名}命名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.AbstractBO.GetNextSequenceId``1">
+            <summary>
+            取得当前最大的SQU值，用于ORACLE数据库，ORACLE数据库中的SEQUENCE对象必须以SEQ_{表名}命名
+            此方法会根据Model类的自定义属性来判断模型用于哪个数据库，并根据数据库类型获取序列值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.EPS.BusinessObject.AbstractBO.SessionCache">
+            <summary>
+            SESSION集合同时也作为SESSION对象的缓存对象，用于多数据库环境
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.BusinessObject.AbstractBO.Model">
+            <summary>
+            业务对象所引用的数据模型
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.BusinessObject.AbstractBO.DefaultSession">
+            <summary>
+            默认SESSION对象
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.GenericBO`1.Save(`0)">
+            <summary>
+            保存方法
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.GenericBO`1.Save(EasyDev.EPS.IModel)">
+            <summary>
+            保存方法（非泛型版本）
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.GenericBO`1.FindByInstance``1(``0)">
+            <summary>
+            查找实例是否存在
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.GenericBO`1.FindByInstance(EasyDev.EPS.IModel)">
+            <summary>
+            查找实例是否存在
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.GenericBO`1.FindById(System.String)">
+            <summary>
+            根据KEYFIELD查找模型对象
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Portal.SchemaBO.FindZonesBySchemaID(System.String)">
+            <summary>
+            根据方案编号取得区域设置
+            </summary>
+            <param name="schemaId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Portal.SchemaBO.GetDefaultSchema">
+            <summary>
+            取得缺省方案
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Presentation.UI.WebControls.DropDownTree">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.DropDownTree.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.DropDownTree.CreateChildControls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.DropDownTree.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.DropDownTree.DesignerSupport">
+            <summary>
+            Display in designer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.DropDownTree.OnInit(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.DropDownTree.OnLoad(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.DropDownTree.AddTreeNode(System.Web.UI.WebControls.TreeNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.DropDownTree.BuildTree(System.Web.UI.WebControls.TreeNodeCollection,System.Data.DataTable,System.Object)">
+            <summary>
+            build treeview
+            </summary>
+            <param name="nodes"></param>
+            <param name="treeData"></param>
+            <param name="pid"></param>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.Columns">
+            <summary>
+            All columns that was bound to this control
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.QuickNewUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.SelectedValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.SelectedText">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.Tree">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.Text">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.RootParentValue">
+            <summary>
+            Specific the parent value of root node in the tree
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.DataKeyField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.DataTextField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.DataValueField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.DataParentField">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.DropDownTree.CanQuickNew">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.UI.WebControls.DropDownTree.TextChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyDev.BL.AbstractServiceManager">
+            <summary>
+            抽象服务管理器，用于实现默认的操作实现
+            </summary>
+        </member>
+        <member name="T:EasyDev.BL.IServiceManager">
+            <summary>
+            服务管理器接口
+            </summary>
+        </member>
+        <member name="T:EasyDev.Common.ExceptionBase">
+            <summary>
+            异常处理公共基类
+            </summary>
+        </member>
+        <member name="F:EasyDev.Common.ExceptionBase.topic">
+            <summary>
+            异常主题
+            </summary>
+        </member>
+        <member name="F:EasyDev.Common.ExceptionBase.content">
+            <summary>
+            异常详细内容
+            </summary>
+        </member>
+        <member name="F:EasyDev.Common.ExceptionBase.location">
+            <summary>
+            异常发生的位置
+            </summary>
+        </member>
+        <member name="F:EasyDev.Common.ExceptionBase.occurTime">
+            <summary>
+            异常发生时间
+            </summary>
+        </member>
+        <member name="F:EasyDev.Common.ExceptionBase.level">
+            <summary>
+            异常类型
+            </summary>
+        </member>
+        <member name="P:EasyDev.Common.ExceptionBase.Level">
+            <summary>
+            异常类型
+            </summary>
+        </member>
+        <member name="P:EasyDev.Common.ExceptionBase.Topic">
+            <summary>
+            异常主题
+            </summary>
+        </member>
+        <member name="P:EasyDev.Common.ExceptionBase.Content">
+            <summary>
+            异常详细内容
+            </summary>
+        </member>
+        <member name="P:EasyDev.Common.ExceptionBase.OccurTime">
+            <summary>
+            异常发生时间
+            </summary>
+        </member>
+        <member name="P:EasyDev.Common.ExceptionBase.Location">
+            <summary>
+            异常发生的位置
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractService.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractService.Initialize">
+            <summary>
+            初始化方法，此方法会实例化一个集合类型对象，这个对象用于存放缓存的业务对象
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractService.GetDefaultBO``1">
+            <summary>
+            获取通用业务对象
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractService.GetBO``1">
+            <summary>
+            获取业务对象
+            </summary>
+            <typeparam name="TBO"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.EPS.AbstractService.BOCache">
+            <summary>
+            业务对象缓存
+            </summary>        
+        </member>
+        <member name="P:EasyDev.EPS.AbstractService.DefaultBO">
+            <summary>
+            通用业务对象
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.Attributes.EmailValidatorAttribute.DoValidate(System.Object)">
+            <summary>
+            验证方法
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.SQMS.PermissionModule.context_Error(System.Object,System.EventArgs)">
+            <summary>
+            出错处理机制
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.CreateRole(EasyDev.EPS.Security.Roles)">
+            <summary>
+            创建角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.CreateRole(System.String)">
+            <summary>
+            创建角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.RemoveRole(EasyDev.EPS.Security.Roles)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.RemoveRole(System.String)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.FindAllUsersInRole(EasyDev.EPS.Security.Roles)">
+            <summary>
+            取得角色中的所有用户
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.FindUserInRole(System.String,EasyDev.EPS.Security.Roles)">
+            <summary>
+            在指定组中查找特定用户
+            </summary>
+            <param name="user"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.FindPermissionsOfRole(System.String)">
+            <summary>
+            查找角色所拥有的权限
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.FindPermissionInRole(System.String,EasyDev.EPS.Security.Roles)">
+            <summary>
+            查找角色是否有指定的权限
+            </summary>
+            <param name="permission"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleService.AssignRoles(System.String,System.Collections.Generic.IList{EasyDev.EPS.Security.Roles})">
+            <summary>
+            分配角色
+            </summary>
+            <param name="userid"></param>
+            <param name="roles"></param>
+            <returns>分配失败的角色，如果返回列表元素个数为0则所有角色分配成功</returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.GetProperties">
+            <summary>
+            取得模型对象的公共属性列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.GetValue(System.String)">
+            <summary>
+            取得模型对象属性的值
+            </summary>
+            <param name="propName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.SetValue(System.String,System.Object)">
+            <summary>
+            为模型对象的属性赋值
+            </summary>
+            <param name="propName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.Copy(EasyDev.EPS.IModel)">
+            <summary>
+            模型复制
+            </summary>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.SelectCommand(System.String)">
+            <summary>
+            构造模型相关的SQL SELECT命令
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.DeleteCommand(System.String)">
+            <summary>
+            构造模型相关的SQL DELETE命令
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.UpdateCommand(System.String)">
+            <summary>
+            构造模型相关的SQL UPDATE命令
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.InsertCommand">
+            <summary>
+            构造模型相关的SQL INSERT命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.SelectCommand">
+            <summary>
+            构造模型相关的SQL SELECT命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.DeleteCommand">
+            <summary>
+            构造模型相关的SQL DELETE命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.UpdateCommand">
+            <summary>
+            构造模型相关的SQL UPDATE命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.ToParamObjects">
+            <summary>
+            转换成对象数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.ToParamDictionary">
+            <summary>
+            将模型转换成目录对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.IModel.GetKeyPropertyValue">
+            <summary>
+            取得模型对象键属性的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.Copy``1(``0)">
+            <summary>
+            复制模型对象，参数中的对象为源对象，将参数对象中的数据复制到当前对象中
+            </summary>
+            <typeparam name="T">复制类型</typeparam>
+            <param name="sourceModel">复制源</param>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.Copy(EasyDev.EPS.IModel)">
+            <summary>
+            复制模型对象，参数中的对象为源对象，将参数对象中的数据复制到当前对象中
+            </summary>
+            <param name="srcModel">复制源</param>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.isModelEqualTo``1(System.Object)">
+            <summary>
+            模型比较
+            </summary>
+            <typeparam name="TDest"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.SelectCommand(System.String)">
+            <summary>
+            构建当前模型的SELECT命令，此命令是参数化命令
+            </summary>
+            <param name="condition">条件表达式,此条件表达式指的是SQL命令中的WHERE</param>
+            <returns>参数化的SQL命令</returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.SelectCommand">
+            <summary>
+            构建当前模型的SELECT命令，此命令是参数化命令
+            </summary>
+            <returns>参数化的SQL命令</returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.InsertCommand">
+            <summary>
+            构建当前模型的INSERT命令，此命令是参数化命令
+            </summary>
+            <returns>参数化的SQL命令</returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.DeleteCommand(System.String)">
+            <summary>
+            构建当前模型的DELETE命令，此命令是参数化命令
+            </summary>
+            <param name="condition">条件表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.DeleteCommand">
+            <summary>
+            构建当前模型的DELETE命令，此命令是参数化命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.UpdateCommand(System.String)">
+            <summary>
+            构建当前模型的UPDATE命令，此命令是参数化命令
+            </summary>
+            <param name="condition">条件表达式,如果参数为NULL则表示此SQL没有WHERE子句</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.UpdateCommand">
+            <summary>
+            构建当前模型的UPDATE命令，此命令是参数化命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.ToParamObjects">
+            <summary>
+            将模型转换为对象数组,只转换模型中值不为空的公共属性，对于日期对象只转换值不为DateTime.MinValue的公共属性
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.AbstractModel.ProcessValidation">
+            <summary>
+            进行模型数据验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.EPS.Security.UserInRole.UserID">
+            <summary>
+            UserID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.UserInRole.RoleID">
+            <summary>
+            RoleID Field 
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.ModelFactory.CreateModel``1(System.Data.DataTable)">
+            <summary>
+            根据数据表中的内容创建Model
+            </summary>
+            <typeparam name="T">Model的类型模板</typeparam>
+            <param name="dt">包含Model数据的DataTable</param>
+            <param name="modelType">Model的类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.ModelFactory.CreateModel(System.Data.DataTable,System.Type)">
+            <summary>
+            根据数据表中的内容创建Model(非泛型版本)
+            </summary>
+            <param name="dt"></param>
+            <param name="modelType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.ModelFactory.CreateModel``1(System.Data.DataRow)">
+            <summary>
+            创建单个Model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dr"></param>
+            <param name="modelType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.ModelFactory.CreateModel(System.Data.DataRow,System.Type)">
+            <summary>
+            创建模型对象（非泛型版本）
+            </summary>
+            <param name="dr"></param>
+            <param name="modelType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.ModelFactory.CreateModels``1(System.Data.DataTable)">
+            <summary>
+            批量创建Model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt"></param>
+            <param name="modelType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Util.TypeUtil">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.GetProperties(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.GetProperties``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.GetValueFromTypeInstance(System.Type,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tObject"></param>
+            <param name="propName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.GetValueFromTypeInstance``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <param name="propName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.IsTypeContainsAttribute(System.Type,System.Type)">
+            <summary>
+            判断类型t中是否有attr这个自定义属性
+            </summary>
+            <param name="t"></param>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.IsTypeContainsAttribute``2">
+            <summary>
+            判断类型TObject中是否有TAttribute这个自定义属性
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <typeparam name="TAttribute"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.IsPropertyContainsAttribute(System.Type,System.String,System.Type)">
+            <summary>
+            判断类型tobject中的名为propName的属性是否有类型为tattr的属性
+            返回空则不存在
+            </summary>
+            <param name="tobject"></param>
+            <param name="propName"></param>
+            <param name="tattr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.IsPropertyContainsAttribute``2(System.String)">
+            <summary>
+            判断类型TObject中的名为propName的属性是否有类型为TAttribute的属性
+            返回空则不存在
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <typeparam name="TAttribute"></typeparam>
+            <param name="propName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.GetValueFromAttributeOfProperty(System.Type,System.String,System.Type,System.String)">
+            <summary>
+            从类型tObject的名为propName的成员中找到类型为tAttr的自定义属性，并取得这个自定义属性中名为fieldName的公共成员的值
+            </summary>
+            <param name="tObject"></param>
+            <param name="propName"></param>
+            <param name="tAttr"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.TypeUtil.GetValueFromAttributeOfProperty``2(System.String,System.String)">
+            <summary>
+            从类型TObject的名为propName的成员中找到类型为TAttribute的自定义属性，并取得这个自定义属性中名为fieldName的公共成员的值
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <typeparam name="TAttribute"></typeparam>
+            <param name="propName"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Security.UserSecurityManager">
+            <summary>
+            用户安全机制管理器
+            </summary>
+        </member>
+        <member name="M:EasyDev.Security.UserSecurityManager.InitializeUserContext(System.Web.SessionState.HttpSessionState,EasyDev.Security.UserInfo)">
+            <summary>
+            将用户信息写入SESSION和当前线程
+            </summary>
+        </member>
+        <member name="M:EasyDev.Security.UserSecurityManager.RemoveUserContext(System.Web.SessionState.HttpSessionState)">
+            <summary>
+            移除用户信息
+            </summary>
+            <param name="session"></param>
+        </member>
+        <member name="P:EasyDev.Security.UserSecurityManager.Context">
+            <summary>
+            用户安全上下文
+            </summary>
+        </member>
+        <member name="P:EasyDev.Security.UserSecurityManager.UserInfo">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="M:EasyDev.Resources.IResourceManager.GetString(System.String)">
+            <summary>
+            取得资源串值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.ResourceManagerBase.Initialize(EasyDev.Configuration.ResourceItemConfig)">
+            <summary>
+            初始化资源管理器
+            </summary>
+        </member>
+        <member name="M:EasyDev.Resources.StandardResourceManager.GetString(System.String)">
+            <summary>
+            取得资源串值
+            </summary>
+            <param name="key">资源的唯一标识</param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.PL.PersistenceException">
+            <summary>
+            ³Ö¾Ã²ãÒì³£¶ÔÏó
+            </summary>
+        </member>
+        <member name="T:EasyDev.PL.DataSourceManager">
+            <summary>
+            Êý¾ÝÔ´¹ÜÀíÆ÷
+            <example>
+            ´´½¨Ä¬ÈÏµÄÊý¾ÝÔ´:<br/>
+            <code>
+            IDataSourceObject dsObj = DataSourceManager.CreateDefaultDataSource();
+            </code>
+            ´´½¨ÃüÃûÊý¾ÝÔ´£º<br/>
+            <code>
+            IDataSourceObject dsObj = DataSourceManager.CreateDataSource(dataSourceName);
+            </code>
+            <remarks>
+            Êý¾ÝÔ´Ãû³ÆÊÇÔÚEasyDev.Persistence.ConfigÎÄ¼þÖÐÉèÖÃµÄÃû³Æ£¬Ä¬ÈÏÊý¾ÝÔ´ÊÇÔÚÕâ¸öÅäÖÃÎÄ¼þÖÐDataSources½áµãDefaultÊôÐÔµÄÖµËù¶ÔÓ¦µÄÊý¾ÝÔ´ÅäÖÃ
+            </remarks>
+            </example>
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.DataSourceManager.CreateDefaultDataSource">
+            <summary>
+            ¸ù¾ÝÅäÖÃÐÅÏ¢²úÉúÊý¾Ý¿âÌá¹©³ÌÐò
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.DataSourceManager.CreateDataSource(System.String)">
+            <summary>
+            ¸ù¾ÝÅäÖÃÐÅÏ¢ÖÐµÄÊý¾ÝÔ´Ãû³Æ²úÉú»á»°¶ÔÏóµÄ·½·¨
+            </summary>
+            <param name="name">Êý¾ÝÔ´ÅäÖÃµÄÃû³Æ</param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Configuration.PersistenceConfigManager">
+            <summary>
+            持久层配置管理器
+            </summary>
+        </member>
+        <member name="F:EasyDev.Configuration.PersistenceConfigManager.defaultDataSource">
+            <summary>
+            默认数据提供程序
+            </summary>
+        </member>
+        <member name="F:EasyDev.Configuration.PersistenceConfigManager.defaultSchemaDir">
+            <summary>
+            默认数据架构目录
+            </summary>
+        </member>
+        <member name="F:EasyDev.Configuration.PersistenceConfigManager.configPath">
+            <summary>
+            配置文件位置
+            </summary>
+        </member>
+        <member name="F:EasyDev.Configuration.PersistenceConfigManager.datasources">
+            <summary>
+            数据提供程序集合
+            </summary>
+        </member>
+        <member name="F:EasyDev.Configuration.PersistenceConfigManager.lockHelper">
+            <summary>
+            锁对象
+            </summary>
+        </member>
+        <member name="F:EasyDev.Configuration.PersistenceConfigManager._instance">
+            <summary>
+            持久配置对象管理器实例
+            </summary>
+        </member>
+        <member name="M:EasyDev.Configuration.PersistenceConfigManager.GetInstance">
+            <summary>
+            创建持久层对象实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Configuration.PersistenceConfigManager.Initialize">
+            <summary>
+            初始化数据提供程序配置
+            </summary>
+        </member>
+        <member name="M:EasyDev.Configuration.PersistenceConfigManager.InitDataSource">
+            <summary>
+            初始化数据源
+            </summary>
+        </member>
+        <member name="M:EasyDev.Configuration.PersistenceConfigManager.GetDefaultDataSource">
+            <summary>
+            取得默认数据提供程序信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Configuration.PersistenceConfigManager.GetDataSourceByName(System.String)">
+            <summary>
+            根据名称取得数据提供程序信息
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.Configuration.PersistenceConfigManager.DataSourceCache">
+            <summary>
+            数据源缓存
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.PersistenceConfigManager.DefaultDataSource">
+            <summary>
+            默认数据提供程序
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.PersistenceConfigManager.SchemaDir">
+            <summary>
+            默认数据架构目录
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.PersistenceConfigManager.DataSources">
+            <summary>
+            数据提供程序集合
+            </summary>
+        </member>
+        <member name="M:EasyDev.SQMS.PassportService.Login(System.String,System.String,System.String)">
+            <summary>
+            用户登录验证
+            </summary>
+            <param name="name">用户名</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.SQMS.PassportService.GetUserRole(System.String)">
+            <summary>
+            取得用户的角色
+            </summary>
+            <param name="passport"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.SQMS.PassportService.GetUserPermission(System.String,System.String)">
+            <summary>
+            取得用户权限
+            </summary>
+            <param name="passport"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.COLUMNID">
+            <summary>
+            COLUMNID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.COLUMNNAME">
+            <summary>
+            COLUMNNAME Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.DISPLAYNAME">
+            <summary>
+            DISPLAYNAME Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.DATATYPE">
+            <summary>
+            DATATYPE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.LISTID">
+            <summary>
+            LISTID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.CREATED">
+            <summary>
+            CREATED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.MODIFIED">
+            <summary>
+            MODIFIED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.ACTIVED">
+            <summary>
+            ACTIVED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.ALIAS">
+            <summary>
+            ALIAS Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.ISGROUP">
+            <summary>
+            ISGROUP Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.ListColumn.ORDERTYPE">
+            <summary>
+            ORDERTYPE Field 
+            </summary>
+        </member>
+        <member name="T:EasyDev.Util.ConvertUtil">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ConvertToString(System.Object)">
+            <summary>
+            转换为字符串，如果为空则返回string.Empty
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ToStringOrDefault(System.Object)">
+            <summary>
+            返回对象的字符串表示,去掉前后空格
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.GetDataTableFromDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            获取数据集中的数据表
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.GetDataTableFromDataSet(System.Data.DataSet,System.Int32)">
+            <summary>
+            获取数据集中的数据表
+            </summary>
+            <param name="dsFrom">源数据集</param>
+            <param name="index">数据表索引</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.GetFirstRowFromDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            获取数据集中某数据表的第一行
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.GetFirstRowFromDataTable(System.Data.DataTable)">
+            <summary>
+            获取数据表中的第一行
+            </summary>
+            <param name="dtFrom">数据表</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.GetSingleRowFromDataSet(System.Data.DataSet,System.String,System.Int32)">
+            <summary>
+            获取数据集中的一行
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <param name="rowNum">行号</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.GetSingleRowFromDataTable(System.Data.DataTable,System.Int32)">
+            <summary>
+            获取数据表中的一行
+            </summary>
+            <param name="dtFrom">数据表</param>
+            <param name="rowNum">行号</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ToDateTime(System.Object)">
+            <summary>
+            将对象转换成DateTime，如果无法转换则返回值为0001-1-1 00:00:00的DateTime（new DateTime();）
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ToDecimal(System.Object)">
+            <summary>
+            将对象转换成decimal，如果无法转换则返回0
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ToInt(System.Object)">
+            <summary>
+            将对象转换成int，如果无法转换则返回0
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ToLat(System.Object)">
+            <summary>
+            转换成纬度，正数为北纬，负数为南纬，默认值为0度
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ToLng(System.Object)">
+            <summary>
+            转换成经度，正数为东经，负数为西经，默认值为0度
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ToBool(System.Object)">
+            <summary>
+            转换成bool类型，特别的，"Y"转换成True，"N"转换成False
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.ConvertUtil.ResolveReal(System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Security.IUserAuthentication">
+            <summary>
+            用户验证接口
+            </summary>
+        </member>
+        <member name="M:EasyDev.Security.IUserAuthentication.CheckIn(System.Collections.IDictionary)">
+            <summary>
+            用户登入方法
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EasyDev.Security.IUserAuthentication.CheckOut">
+            <summary>
+            登出方法
+            </summary>
+        </member>
+        <member name="M:EasyDev.Security.IUserAuthentication.Authentication(System.String,System.String,System.String)">
+            <summary>
+            验证某用户对某资源是否有某种操作类型的权限
+            </summary>
+            <param name="userName"></param>
+            <param name="resourceId"></param>
+            <param name="operationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Security.IUserAuthentication.Authentication(System.String,System.String)">
+            <summary>
+            验证某用户对某资源是否有任一操作类型的权限
+            </summary>
+            <param name="userName"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.GlobalizerBase.GetValueByKey(System.String)">
+            <summary>
+            ÔÚ¹ú¼Ê»¯ÓïÑÔÐÅÏ¢ÖÐ²éÕÒ¶ÔÓ¦µÄÖµ
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.BL.ServiceManagerFactory">
+            <summary>
+            服务管理器工厂
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.ServiceManagerFactory.CreateServiceManager``1">
+            <summary>
+            创建管理器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.ServiceManagerFactory.CreateRemotingServiceManager">
+            <summary>
+            创建远程服务管理器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.ServiceManagerFactory.CreateNativeServiceManager">
+            <summary>
+            创建本地服务管理器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.BL.IGenericBizObject">
+            <summary>
+            ÒµÎñ¶ÔÏó½Ó¿Ú
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.Synchronize">
+            <summary>
+            Êý¾ÝÍ¬²½£¬¸ù¾ÝÊý¾ÝÐÐµÄ×´Ì¬×Ô¶¯Í¬²½Êý¾Ýµ½Êý¾Ý¿â
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.IsModelEmpty">
+            <summary>
+            ¼ì²éÄ£ÐÍÊÇ·ñÎª¿Õ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.IsEmpty">
+            <summary>
+            ¼ì²éÄ£ÐÍÊÇ·ñÎª¿Õ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.GetFirstRow">
+            <summary>
+            È¡µÃÄ£ÐÍÊý¾ÝµÄµÚÒ»ÐÐ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.GetFirstTable">
+            <summary>
+            È¡µÃÄ£ÐÍÊý¾Ý¼¯µÄµÚÒ»ÕÅÊý¾Ý±í
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.Clear">
+            <summary>
+            Çå³ýÄ£ÐÍÊý¾Ý
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.LoadAll">
+            <summary>
+            ¼ÓÔØÒµÎñ¶ÔÏó¶ÔÓ¦µÄËùÓÐÊý¾Ý¼ÇÂ¼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.LoadByPrimaryKey(System.Object)">
+            <summary>
+            ¸ù¾ÝÖ÷¼ü¼ÓÔØÒµÎñ¶ÔÏóµÄÊý¾Ý
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.LoadByPrimaryKeys(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            ¸ù¾ÝÖ÷¼ü¼ÓÔØÒµÎñ¶ÔÏóµÄÊý¾Ý(¶àÖ÷¼üÇé¿ö)
+            </summary>
+            <param name="keyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.LoadByCondition(System.String)">
+            <summary>
+            ¸ù¾ÝÌõ¼þ¼ÓÔØÄ£ÐÍÊý¾Ý
+            </summary>
+            <param name="whereCond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.Create">
+            <summary>
+            ´´½¨ÐÂµÄÊý¾Ý¼ÇÂ¼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.LoadViewByName(System.String)">
+            <summary>
+            ¸ù¾ÝÊÓÍ¼Ãû³Æ´ò¿ªÊÓÍ¼£¬·µ»ØÊÓÍ¼Êý¾Ý²¢½«µ±Ç°ÊÓÍ¼Ìí¼Óµ½ÊÓÍ¼¼¯ºÏÖÐ
+            </summary>
+            <param name="viewName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.LoadViewByCondition(System.String,System.String)">
+            <summary>
+            ¸ù¾ÝÌõ¼þ´ò¿ªÊÓÍ¼,·µ»ØÊÓÍ¼Êý¾Ý²¢½«µ±Ç°ÊÓÍ¼Ìí¼Óµ½ÊÓÍ¼¼¯ºÏÖÐ
+            </summary>
+            <param name="viewName"></param>
+            <param name="cond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.RemoveFromViews(System.String)">
+            <summary>
+            ´ÓÊÓÍ¼¼¯ºÏÖÐÒÆ³ýÊÓÍ¼
+            </summary>
+            <param name="viewName"></param>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.DeleteByPrimaryKey(System.Object)">
+            <summary>
+            ¸ù¾ÝÖ÷¼üÉ¾³ýÊý¾Ý
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.DeleteByPrimaryKeys(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            ¸ù¾Ý¶àÖ÷¼üÉ¾³ýÊý¾Ý
+            </summary>
+            <param name="keys"></param>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.DeleteByCondition(System.String)">
+            <summary>
+            °´Ìõ¼þÉ¾³ýÊý¾Ý
+            </summary>
+            <param name="cond"></param>
+        </member>
+        <member name="M:EasyDev.BL.IGenericBizObject.GetNextSequenceID(System.String)">
+            <summary>
+            ´ÓORACLEÊý¾Ý¿âÖÐÈ¡SEQºÅ
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.BL.IGenericBizObject.Views">
+            <summary>
+            ÊÓÍ¼¼¯ºÏ
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.IGenericBizObject.BOData">
+            <summary>
+            Ä£ÐÍÊý¾Ý£¬ÒµÎñ¶ÔÏó°üº¬µÄÊý¾Ý
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.PARTID">
+            <summary>
+            PARTID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.ZONEID">
+            <summary>
+            ZONEID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.PARTDESC">
+            <summary>
+            PARTDESC Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.PARTNAME">
+            <summary>
+            PARTNAME Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.PARTORDER">
+            <summary>
+            PARTORDER Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.PARTTYPE">
+            <summary>
+            PARTTYPE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.SERVICETYPE">
+            <summary>
+            SERVICETYPE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.VOID">
+            <summary>
+            VOID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.CREATED">
+            <summary>
+            CREATED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.MODIFIED">
+            <summary>
+            MODIFIED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.PARTTITLE">
+            <summary>
+            PARTTITLE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Part.DATAPROVIDER">
+            <summary>
+            DATAPROVIDER Field 
+            </summary>
+        </member>
+        <member name="M:EasyDev.Util.CompressUtil.Compress(System.Byte[])">
+            <summary>
+            采用GZIP算法对数据进行压缩
+            </summary>
+            <param name="toCompressData">要压缩的数据</param>
+            <returns>UTF8编码的压缩结果</returns>
+        </member>
+        <member name="M:EasyDev.Util.CompressUtil.Extract(System.Byte[])">
+            <summary>
+            对UTF8编码的压缩数据进行解压缩
+            </summary>
+            <param name="toExtractData">要解压的数据</param>
+            <returns>UTF8编码的解压缩数据</returns>
+        </member>
+        <member name="M:EasyDev.Util.CompressUtil.Compress(System.String)">
+            <summary>
+            采用GZIP算法对数据进行压缩
+            </summary>
+            <param name="toCompressData">要压缩的数据</param>
+            <returns>UTF8编码的压缩结果</returns>
+        </member>
+        <member name="M:EasyDev.Util.CompressUtil.Extract(System.String)">
+            <summary>
+            对UTF8编码的压缩数据进行解压缩
+            </summary>
+            <param name="toExtractData">要解压的数据</param>
+            <returns>UTF8编码的解压缩数据</returns>
+        </member>
+        <member name="M:EasyDev.Resources.XmlResourceManager.GetValueByKey(System.String)">
+            <summary>
+            在国际化语言信息中查找对应的值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Presentation.UI.WebControls.Design.DropDownTreeDesign">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.Design.DropDownTreeDesign.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            
+            </summary>
+            <param name="component"></param>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.Design.DropDownTreeDesign.GetDesignTimeHtml">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Presentation.UI.WebControls.Design.DropDownTreeDesign.GetEmptyDesignTimeHtml">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.Presentation.UI.WebControls.Design.DropDownTreeDesign.AllowResize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyDev.PL.CommonIdentityGenerator">
+            <summary>
+            普通主键生成器，生成GUID编码
+            </summary>
+        </member>
+        <member name="T:EasyDev.PL.IGenerator">
+            <summary>
+            生成器接口
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.CommonIdentityGenerator.Generate">
+            <summary>
+            生成GUID编码作为主键值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.BL.BizObjectFactory">
+            <summary>
+            ÒµÎñ¶ÔÏó¹¤³§£¬´´½¨Í¨ÓÃÒµÎñ¶ÔÏó
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.BizObjectFactory.#ctor(EasyDev.PL.GenericDBSession)">
+            <summary>
+            ¹¹ÔìÆ÷
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.BizObjectFactory.#ctor(System.String,EasyDev.PL.GenericDBSession)">
+            <summary>
+            ÓÃÓÚÖ§³ÖMSSqlServer2005µÄSchema
+            </summary>
+            <param name="_namespace"></param>
+        </member>
+        <member name="M:EasyDev.BL.BizObjectFactory.GetInstance(EasyDev.PL.GenericDBSession)">
+            <summary>
+            ³õÊ¼»¯BizObjectFactoryÊµÀý
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.BizObjectFactory.GetInstance(System.String,EasyDev.PL.GenericDBSession)">
+            <summary>
+            ÓÃÓÚÖ§³ÖMSSqlServer2005µÄSchema
+            </summary>
+            <param name="_namespace"></param>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.BizObjectFactory.CreateBizObject(System.String)">
+            <summary>
+            ¸ù¾Ý¼Ü¹¹ÐÅÏ¢´´½¨Êý¾Ý´«Êä¶ÔÏó
+            </summary>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.BizObjectFactory.CreateBizObject(System.String,System.String)">
+            <summary>
+            ´´½¨Í¨ÓÃÒµÎñ¶ÔÏó
+            </summary>
+            <param name="_namespace"></param>
+            <param name="schema"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.BizObjectFactory.CreateBizObject``1(EasyDev.PL.GenericDBSession,System.String)">
+            <summary>
+            ´´½¨Ç¿ÀàÐÍÊý¾Ý¼¯(Ç¿ÀàÐÍÓòÄ£ÐÍ)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="session"></param>
+            <param name="schema"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.BizObjectFactory.CreateBizObject``1(EasyDev.PL.GenericDBSession,System.String,System.String)">
+            <summary>
+            ´´½¨Í¨ÓÃÒµÎñ¶ÔÏó
+            </summary>
+            <typeparam name="T">ÒµÎñ¶ÔÏóÖÐµÄÊý¾ÝÊµÌåÀàÐÍ</typeparam>
+            <param name="session"></param>
+            <param name="_namespace"></param>
+            <param name="schema"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.BL.BizObjectFactory.Namespace">
+            <summary>
+            ÓÃÓÚÖ§³ÖMSSqlServer2005µÄSchema
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.BizObjectFactory.ApplicationName">
+            <summary>
+            Ó¦ÓÃÃû³Æ£¬¿ÉÒÔ¼ÓÔÚ¼Ü¹¹Ãû³ÆÇ°×÷Îª¼Ü¹¹ÎÄ¼þµÄÃüÃû¿Õ¼ä·ÀÖ¹¶à¸öÓ¦ÓÃ¼Ü¹¹ÎÄ¼þÍ¬Ãû
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Roles.ROLEID">
+            <summary>
+            RoleID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Roles.ROLENAME">
+            <summary>
+            RoleName Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Roles.COMMENTS">
+            <summary>
+            Comments Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Roles.CREATED">
+            <summary>
+            Created Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Roles.MODIFIED">
+            <summary>
+            Modified Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Roles.ACTIVED">
+            <summary>
+            Actived Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Schema.SCHEMAID">
+            <summary>
+            SCHEMAID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Schema.SCHEMANAME">
+            <summary>
+            SCHEMANAME Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Schema.COMMENTS">
+            <summary>
+            COMMENTS Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Schema.ISDEFAULT">
+            <summary>
+            ISDEFAULT Field 
+            </summary>
+        </member>
+        <member name="T:EasyDev.Util.MailPackage">
+            <summary>
+            Contains fields a email needs.
+            </summary>
+        </member>
+        <member name="P:EasyDev.Util.MailPackage.From">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Util.MailPackage.To">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Util.MailPackage.CC">
+            <summary>
+            Carbon Copy
+            </summary>
+        </member>
+        <member name="P:EasyDev.Util.MailPackage.Bcc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Util.MailPackage.Subject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Util.MailPackage.Body">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyDev.Util.MailPackage.Attachments">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyDev.Util.MailUtil">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyDev.Util.MailUtil.SimpleSendMail(EasyDev.Util.MailPackage)">
+            <summary>
+            
+            </summary>
+            <param name="pkg"></param>
+        </member>
+        <member name="M:EasyDev.Util.MailUtil.SendMailByLoalOutlook(EasyDev.Util.MailPackage)">
+            <summary>
+            
+            </summary>
+            <param name="pkg"></param>
+        </member>
+        <member name="T:EasyDev.Util.UtilityExtension">
+            <summary>
+            扩展工具方法
+            </summary>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.Compress(System.Byte[])">
+            <summary>
+            采用GZIP算法对数据进行压缩
+            </summary>
+            <param name="toCompressData">要压缩的数据</param>
+            <returns>UTF8编码的压缩结果</returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.Extract(System.Byte[])">
+            <summary>
+            对UTF8编码的压缩数据进行解压缩
+            </summary>
+            <param name="toExtractData">要解压的数据</param>
+            <returns>UTF8编码的解压缩数据</returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.Compress(System.String)">
+            <summary>
+            采用GZIP算法对数据进行压缩
+            </summary>
+            <param name="toCompressData">要压缩的数据</param>
+            <returns>UTF8编码的压缩结果</returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.Extract(System.String)">
+            <summary>
+            对UTF8编码的压缩数据进行解压缩
+            </summary>
+            <param name="toExtractData">要解压的数据</param>
+            <returns>UTF8编码的解压缩数据</returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ParseString(System.Object)">
+            <summary>
+            转换为字符串，如果为空则返回string.Empty
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ParseDateTime(System.Object)">
+            <summary>
+            将对象转换成DateTime，如果无法转换则返回值为0001-1-1 00:00:00的DateTime（new DateTime();）
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ParseInt(System.Object)">
+            <summary>
+            将对象转换成int，如果无法转换则返回0
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ParseDecimal(System.Object)">
+            <summary>
+            将对象转换成decimal，如果无法转换则返回0
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ParseLatitude(System.Object)">
+            <summary>
+            转换成纬度，正数为北纬，负数为南纬，默认值为0度
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ParseLongitude(System.Object)">
+            <summary>
+            转换成经度，正数为东经，负数为西经，默认值为0度
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ParesBool(System.Object)">
+            <summary>
+            转换成bool类型，特别的，"Y"转换成True，"N"转换成False
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ResolveReal(System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.Table(System.Data.DataSet,System.String)">
+            <summary>
+            获取数据集中的数据表
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.Table(System.Data.DataSet,System.Int32)">
+            <summary>
+            获取数据集中的数据表
+            </summary>
+            <param name="dsFrom">源数据集</param>
+            <param name="index">数据表索引</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.SingleRow(System.Data.DataSet,System.String,System.Int32)">
+            <summary>
+            获取数据集中的一行
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <param name="rowNum">行号</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.SingleRow(System.Data.DataTable,System.Int32)">
+            <summary>
+            获取数据表中的一行
+            </summary>
+            <param name="dtFrom">数据表</param>
+            <param name="rowNum">行号</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.FirstRow(System.Data.DataSet,System.String)">
+            <summary>
+            获取数据集中某数据表的第一行
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.FirstRow(System.Data.DataTable)">
+            <summary>
+            获取数据表中的第一行
+            </summary>
+            <param name="dtFrom">数据表</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.XmlSerialization(System.Object,System.Type)">
+            <summary>
+            实现从对象到XML串的序列化
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.BinaryStringSerialization(System.Object)">
+            <summary>
+            实现从对象到二进制串的序列化
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.LOSStringSerialization(System.Object)">
+            <summary>
+            实现从对象到LOS串的序列化 
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.XmlDeserialization(System.IO.Stream,System.Type)">
+            <summary>
+            从流中反序列化XML数据
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+            <param name="type"></param>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.LOSDeserialization(System.IO.Stream)">
+            <summary>
+            从流中反序列化LOS数据
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.LOSDeserialization(System.String)">
+            <summary>
+            将LOS数据反序列化为对象
+            </summary>
+            <param name="losString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.BinaryDeserialization(System.IO.Stream)">
+            <summary>
+            从流中反序化二进制串数据
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickReader(System.IO.Stream,System.Boolean)">
+            <summary>
+            快速流读取
+            </summary>
+            <param name="stream">包含数据的流对象</param>
+            <param name="isCloseStream">读完数据后是否关闭流</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickReaderAsBase64(System.IO.Stream,System.Boolean)">
+            <summary>
+            从流中读取数据并进行BASE64编码
+            </summary>
+            <param name="stream">包含数据的流对象</param>
+            <param name="isCloseStream">读完数据后是否关闭流</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickReaderAsBase64(System.IO.Stream)">
+            <summary>
+            从流中读取数据并进行BASE64编码
+            </summary>
+            <param name="stream">包含数据的流对象</param>
+            <param name="isCloseStream">读完数据后是否关闭流</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickReaderAsUTF8(System.IO.Stream,System.Boolean)">
+            <summary>
+            从流中读取数据并进行UTF8编码
+            </summary>
+            <param name="stream">包含数据的流对象</param>
+            <param name="isCloseStream">读完数据后是否关闭流</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickReaderAsUTF8(System.IO.Stream)">
+            <summary>
+            从流中读取数据并进行UTF8编码
+            </summary>
+            <param name="stream">包含数据的流对象</param>
+            <param name="isCloseStream">读完数据后是否关闭流</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickWriter(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            快速流写入器
+            </summary>
+            <param name="stream">要写入数据的基础流对象</param>
+            <param name="data">要写入的数据</param>
+            <param name="isCloseStream">是否关闭流对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickWriter(System.IO.Stream,System.String)">
+            <summary>
+            快速流写入器
+            </summary>
+            <param name="stream">要写入数据的基础流对象</param>
+            <param name="data">要写入的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickWriter(System.IO.Stream,System.Byte[],System.Boolean)">
+            <summary>
+            快速流写入器
+            </summary>
+            <param name="stream">要写入数据的基础流对象</param>
+            <param name="data">要写入的数据</param>
+            <param name="isCloseStream">是否关闭流对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.QuickWriter(System.IO.Stream,System.Byte[])">
+            <summary>
+            快速流写入器
+            </summary>
+            <param name="stream">要写入数据的基础流对象</param>
+            <param name="data">要写入的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.Properties(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ValueOfProperty(System.Type,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tObject"></param>
+            <param name="propName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.HasAttribute(System.Type,System.Type)">
+            <summary>
+            判断类型t中是否有attr这个自定义属性
+            </summary>
+            <param name="t"></param>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.HasAttribute(System.Type,System.String,System.Type)">
+            <summary>
+            判断类型中的指定属性(Property)是否有某个特性(Attribute)
+            </summary>
+            <param name="tobject"></param>
+            <param name="propName"></param>
+            <param name="tattr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.HasAttribute(System.Reflection.PropertyInfo,System.Type,System.Type)">
+            <summary>
+            判断类型TObject中的名为propName的属性是否有类型为TAttribute的属性
+            返回空则不存在
+            </summary>
+            <param name="property"></param>
+            <param name="type"></param>
+            <param name="tattr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.UtilityExtension.ValueOfAttribute(System.Type,System.String,System.Type,System.String)">
+            <summary>
+            从类型tObject的名为propName的成员中找到类型为tAttr的自定义属性，并取得这个自定义属性中名为fieldName的公共成员的值
+            </summary>
+            <param name="tObject"></param>
+            <param name="propName"></param>
+            <param name="tAttr"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Resources.GlobalizationManager">
+            <summary>
+            国际化对象管理器
+            </summary>
+        </member>
+        <member name="M:EasyDev.Resources.GlobalizationManager.#ctor(System.String,System.String,System.String)">
+            <summary>
+            初始化国际化资源对象，加载语言资源所在的程序集
+            </summary>
+            <param name="assemblyName">国际化资源所在的程序集名称</param>
+            <param name="resLocation">国际化资源所在的文件名称</param>
+            <param name="culture">国际化资源的语言包名称，对应标准的国际化语言代码</param>
+        </member>
+        <member name="M:EasyDev.Resources.GlobalizationManager.#ctor(System.Type,System.String,System.String)">
+            <summary>
+            初始化国际化资源对象
+            </summary>
+            <param name="assemblyType">国际化资源所在的程序集类型</param>
+            <param name="resLocation">国际化资源所在的文件名称</param>
+            <param name="culture">国际化资源的语言包名称，对应标准的国际化语言代码</param>
+        </member>
+        <member name="M:EasyDev.Resources.GlobalizationManager.GetInstance(System.String,System.String,System.String)">
+            <summary>
+            实例化国际化对象
+            </summary>
+            <param name="assemblyName">国际化资源所在的程序集名称</param>
+            <param name="resLocation">国际化资源所在的文件名称</param>
+            <param name="culture">国际化资源的语言包名称，对应标准的国际化语言代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.GlobalizationManager.GetInstance(System.Type,System.String,System.String)">
+            <summary>
+            实例化国际化对象
+            </summary>
+            <param name="assemblyType">国际化资源所在的程序集类型</param>
+            <param name="resLocation">国际化资源所在的文件名称</param>
+            <param name="culture">国际化资源的语言包名称，对应标准的国际化语言代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.GlobalizationManager.GetInstance(System.Type,System.String)">
+            <summary>
+            根据当前线程中的Culture信息实例化国际化对象
+            </summary>
+            <param name="assemblyType">国际化资源所在的程序集类型</param>
+            <param name="resLocation">国际化资源所在的文件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.GlobalizationManager.GetInstance(System.String,System.String)">
+            <summary>
+            根据当前线程中的Culture信息实例化国际化对象
+            </summary>
+            <param name="assemblyName">国际化资源所在的程序集名称</param>
+            <param name="resLocation">国际化资源所在的文件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.GlobalizationManager.GetGlobalizer">
+            <summary>
+            取得国际化器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:EasyDev.Presentation.GenericMasterPage.resMgrFactory">
+            <summary>
+            本地化/国际化对象创建工厂
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericMasterPage.GetDataFromUI">
+            <summary>
+            从界面元素获取数据
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericMasterPage.OnLoad(System.EventArgs)">
+            <summary>
+            页面加载事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericMasterPage.OnRecoveryUI">
+            <summary>
+            恢复界面事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericMasterPage.OnInitializePage">
+            <summary>
+            初始化页面对象事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericMasterPage.OnLoadData">
+            <summary>
+            加载数据事件 
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericMasterPage.OnInitializeUI">
+            <summary>
+            初始化界面UI事件
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericMasterPage.ResourceManagerCreator">
+            <summary>
+            本地化/国际化对象
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericMasterPage.ResourceManager">
+            <summary>
+            资源管理器
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericMasterPage.ActionFactory">
+            <summary>
+            Action工厂
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericMasterPage.UIData">
+            <summary>
+            界面元素数据
+            </summary>
+        </member>
+        <member name="T:EasyDev.PL.OracleSequenceGenerator">
+            <summary>
+            Oracle序列值生成策略
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.OracleSequenceGenerator.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.OracleSequenceGenerator.TableName">
+            <summary>
+            序列对应的表名
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.OracleSequenceGenerator.Session">
+            <summary>
+            数据库会话对象
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.Initialize">
+            <summary>
+            服务初始化
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.CreateUser(EasyDev.EPS.Security.Users)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.CreateUser(System.String,System.String)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.CreateUser(System.String,System.String,System.String)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.CreateUser(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.RemoveUser(EasyDev.EPS.Security.Users)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.RemoveUser(System.String)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.ChangeUserPassword(EasyDev.EPS.Security.Users,System.String)">
+            <summary>
+            修改用户密码
+            </summary>
+            <param name="user"></param>
+            <param name="oldpasswd"></param>
+            <param name="newpasswd"></param>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.ChangeUserPassword(System.String,System.String,System.String)">
+            <summary>
+            修改用户密码,调用此方法的前提是数据库中的用户表的用户名字段应该有唯一约束
+            </summary>
+            <param name="username">用户名（唯一约束）</param>
+            <param name="oldpasswd"></param>
+            <param name="newpasswd"></param>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.ChangeUserPassword(System.String,System.String,System.String,System.String)">
+            <summary>
+            修改用户密码
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.ValidateUser(EasyDev.EPS.Security.Users)">
+            <summary>
+            验证用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.ValidateUser(System.String,System.String)">
+            <summary>
+            验证用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.ValidateUser(System.String,System.String,System.String)">
+            <summary>
+            验证用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserService.RolesOfUser(System.String)">
+            <summary>
+            用户所在的组
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionService.CreatePermission(EasyDev.EPS.Security.Permissions)">
+            <summary>
+            创建权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionService.CreatePermission(System.String)">
+            <summary>
+            创建权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionService.RemovePermission(EasyDev.EPS.Security.Permissions)">
+            <summary>
+            删除权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionService.RemovePermission(System.String)">
+            <summary>
+            删除权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionService.RolesInPermission(System.String)">
+            <summary>
+            指定权限的所有角色
+            </summary>
+            <param name="permissionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionService.FindRoleInPermission(System.String,EasyDev.EPS.Security.Permissions)">
+            <summary>
+            查找权限是否包含指定角色
+            </summary>
+            <param name="roleId"></param>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionService.Authorize(System.String,System.Collections.Generic.IList{EasyDev.EPS.Security.Permissions})">
+            <summary>
+            角色授权
+            </summary>
+            <param name="roleId">要授权的角色ID</param>
+            <param name="permissions">授权列表</param>
+            <returns>授权失败的权限点，如果返回列表元素个数为0则所有权限授权成功</returns>
+        </member>
+        <member name="M:EasyDev.EPS.Attributes.UrlValidatorAttribute.DoValidate(System.Object)">
+            <summary>
+            验证方法
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.EPS.Security.UserBO">
+            <summary>
+            创建业务对象的时候，首先要覆盖基类的Initialize方法实现模型和KeyField属性的初始化
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserBO.GetUsersByRoleID(System.String)">
+            <summary>
+            根据角色ID取得属于指定角色的所有用户
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.EPS.Security.PermissionBO">
+            <summary>
+            创建业务对象的时候，首先要覆盖基类的Initialize方法实现模型和KeyField属性的初始化
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionBO.GetRolesOfPermission(System.String)">
+            <summary>
+            取得指定权限下的角色
+            </summary>
+            <param name="permissionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionBO.SaveRight(System.String,System.String)">
+            <summary>
+            保存角色授权信息
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionBO.DeleteRight(System.String,System.String)">
+            <summary>
+            删除角色授权信息
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionBO.UpdateRight(System.String,System.String)">
+            <summary>
+            更新角色授权信息
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionBO.FindRight(System.String,System.String)">
+            <summary>
+            查找角色授权信息
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.PermissionBO.GrantRight(System.String,System.String)">
+            <summary>
+            角色授权
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Security.UserIdentity">
+            <summary>
+            用户身份识别对象
+            </summary>
+        </member>
+        <member name="P:EasyDev.Security.UserIdentity.Context">
+            <summary>
+            包含用户身份相关的信息集合
+            </summary>
+        </member>
+        <member name="M:EasyDev.Cache.CacheManager.Store(System.String,System.Object)">
+            <summary>
+            将对象存入缓存
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyDev.Cache.CacheManager.Retrieve(System.String)">
+            <summary>
+            从缓存中取对象
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.CreatePermission(EasyDev.EPS.Security.Permissions)">
+            <summary>
+            创建权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.CreatePermission(System.String)">
+            <summary>
+            创建权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.RemovePermission(EasyDev.EPS.Security.Permissions)">
+            <summary>
+            删除权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.RemovePermission(System.String)">
+            <summary>
+            删除权限
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.RolesInPermission(System.String)">
+            <summary>
+            指定权限的所有角色
+            </summary>
+            <param name="permissionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.FindRoleInPermission(System.String,EasyDev.EPS.Security.Permissions)">
+            <summary>
+            查找权限是否包含指定角色
+            </summary>
+            <param name="roleId"></param>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.Authorize(System.String,System.Collections.Generic.IList{EasyDev.EPS.Security.Permissions})">
+            <summary>
+            角色授权
+            </summary>
+            <param name="roleId">要授权的角色ID</param>
+            <param name="permissions">授权列表</param>
+            <returns>授权失败的权限点，如果返回列表元素个数为0则所有权限授权成功</returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.CreateRole(EasyDev.EPS.Security.Roles)">
+            <summary>
+            创建角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.CreateRole(System.String)">
+            <summary>
+            创建角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.RemoveRole(EasyDev.EPS.Security.Roles)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.RemoveRole(System.String)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.FindAllUsersInRole(EasyDev.EPS.Security.Roles)">
+            <summary>
+            取得角色中的所有用户
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.FindUserInRole(System.String,EasyDev.EPS.Security.Roles)">
+            <summary>
+            在指定组中查找特定用户
+            </summary>
+            <param name="user"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.FindPermissionsOfRole(System.String)">
+            <summary>
+            查找角色所拥有的权限
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.FindPermissionInRole(System.String,EasyDev.EPS.Security.Roles)">
+            <summary>
+            查找角色是否有指定的权限
+            </summary>
+            <param name="permission"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.AssignRoles(System.String,System.Collections.Generic.IList{EasyDev.EPS.Security.Roles})">
+            <summary>
+            分配角色
+            </summary>
+            <param name="userid"></param>
+            <param name="roles"></param>
+            <returns>分配失败的角色，如果返回列表元素个数为0则所有角色分配成功</returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.CreateUser(EasyDev.EPS.Security.Users)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.CreateUser(System.String,System.String)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.CreateUser(System.String,System.String,System.String)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.CreateUser(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.RemoveUser(EasyDev.EPS.Security.Users)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.RemoveUser(System.String)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.ChangeUserPassword(EasyDev.EPS.Security.Users,System.String)">
+            <summary>
+            修改用户密码
+            </summary>
+            <param name="user"></param>
+            <param name="oldpasswd"></param>
+            <param name="newpasswd"></param>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.ChangeUserPassword(System.String,System.String,System.String)">
+            <summary>
+            修改用户密码,调用此方法的前提是数据库中的用户表的用户名字段应该有唯一约束
+            </summary>
+            <param name="username">用户名（唯一约束）</param>
+            <param name="oldpasswd"></param>
+            <param name="newpasswd"></param>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.ChangeUserPassword(System.String,System.String,System.String,System.String)">
+            <summary>
+            修改用户密码
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.ValidateUser(EasyDev.EPS.Security.Users)">
+            <summary>
+            验证用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.ValidateUser(System.String,System.String)">
+            <summary>
+            验证用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.ValidateUser(System.String,System.String,System.String)">
+            <summary>
+            验证用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.SecurityService.RolesOfUser(System.String)">
+            <summary>
+            用户所在的组
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.LIST_DATA">
+            <summary>
+            列表数据
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.IS_STRONG_TYPE">
+            <summary>
+            是否是强类型数据
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.IS_HEAD_OP">
+            <summary>
+            操作是否前置
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.EDIT_ACTION">
+            <summary>
+            编辑ACTION名称
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.DETAILS_ACTION">
+            <summary>
+            浏览ACTION名称
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.DELETE_ACTION">
+            <summary>
+            删除ACTION名称
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.KEYPROPERTY_NAME">
+            <summary>
+            操作所依赖的键属性名称
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.MODEL_TYPENAME">
+            <summary>
+            模型对象类型名称
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.LIST_HEADER">
+            <summary>
+            列表表头
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.CONTROLLER_NAME">
+            <summary>
+            控制器名称
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.DATA_SQL">
+            <summary>
+            用于获取数据的SQL
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.IS_OP_VISIBLE">
+            <summary>
+            是否显示操作栏
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.OPTABLE">
+            <summary>
+            弱类型数据的时候，操作所依赖的数据表名称
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.listModelLoaded">
+            <summary>
+            列表模型加载后事件
+            </summary>
+        </member>
+        <member name="F:EasyDev.EPS.GenericList.GenericListService.Events">
+            <summary>
+            事件列表
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.GenericList.GenericListService.GetGenericListModel(System.String)">
+            <summary>
+            从数据库读取列表配置
+            </summary>
+            <param name="listId"></param>
+            <returns></returns>
+        </member>
+        <member name="E:EasyDev.EPS.GenericList.GenericListService.ListModelLoaded">
+            <summary>
+            加载数据后处理事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.EPS.GenericList.GenericListService.DataSQLLoaded">
+            <summary>
+            加载数据SQL后处理事件
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Right.PermissionID">
+            <summary>
+            PermissionID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Right.RoleID">
+            <summary>
+            RoleID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Right.Created">
+            <summary>
+            Created Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Right.Modified">
+            <summary>
+            Modified Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Zone.ZONEID">
+            <summary>
+            ZONEID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Zone.ZONENAME">
+            <summary>
+            ZONENAME Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Zone.ZONEORDER">
+            <summary>
+            ZONEORDER Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Zone.ZONEDESC">
+            <summary>
+            ZONEDESC Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Zone.VOID">
+            <summary>
+            VOID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Zone.CREATED">
+            <summary>
+            CREATED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Zone.MODIFIED">
+            <summary>
+            MODIFIED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Portal.Zone.ZONESTYLE">
+            <summary>
+            ZONESTYLE Field 
+            </summary>
+        </member>
+        <member name="T:EasyDev.EPS.BusinessObject.SQLBuilder">
+            <summary>
+            根据MODEL对象生成SQL
+            出于简单处理考虑，这里处理的主属性列类型要是字符串类型。
+            因为字符串类型作为主属性是最为常见的做法，所以这里对主属性的处理按字符串进行
+            所以在设计数据库的时候要考虑这一点
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.BusinessObject.SQLBuilder.BuildSelect(EasyDev.EPS.IModel,System.String,System.Boolean)">
+            <summary>
+            创建SELECT命令
+            </summary>
+            <param name="model"></param>
+            <param name="schemaName"></param>
+            <param name="iscondition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.BL.Services.ServicePool">
+            <summary>
+            服务池对象
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.Services.ServicePool.LoadServices">
+            <summary>
+            从指定的程序集将服务加载到缓存
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.Services.ServicePool.FetchService(System.String)">
+            <summary>
+            从服务池中取得已经实例化的服务
+            </summary>
+            <param name="key">服务的完全限定名</param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Office.Excel.ExcelExtractor">
+            <summary>
+            Excel field value extractor
+            </summary>
+        </member>
+        <member name="M:EasyDev.Office.Excel.ExcelExtractor.#ctor">
+            <summary>
+            Default constractor
+            </summary>
+        </member>
+        <member name="M:EasyDev.Office.Excel.ExcelExtractor.#ctor(System.String)">
+            <summary>
+            Custom constractor with filepath parameter
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:EasyDev.Office.Excel.ExcelExtractor.Initialize(System.String)">
+            <summary>
+            Initialize current extractor
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:EasyDev.Office.Excel.ExcelExtractor.GetValue``2(System.Int32,System.String)">
+            <summary>
+            Get value by specific type of value extractor.
+            </summary>
+            <typeparam name="TExtractor">type of extractor</typeparam>
+            <typeparam name="TRetValue">return value</typeparam>
+            <param name="sheetIndex">sheet index</param>
+            <param name="controlName">control name</param>
+            <returns>value of the control</returns>
+        </member>
+        <member name="M:EasyDev.Office.Excel.ExcelExtractor.GetValue``2(System.String)">
+            <summary>
+            Get value by specific type of value extractor.
+            <remarks>By this method, the first sheet will be used.</remarks>
+            </summary>
+            <typeparam name="TExtractor"></typeparam>
+            <typeparam name="TRetValue"></typeparam>
+            <param name="controlName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.Office.Excel.ExcelExtractor.FilePath">
+            <summary>
+            Excel file path
+            </summary>
+        </member>
+        <member name="P:EasyDev.Office.Excel.ExcelExtractor.ExcelApplication">
+            <summary>
+            Excel application COM object
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.Security.UserLoginService.Login(System.String,System.String)">
+            <summary>
+            登录方法
+            </summary>
+            <param name="username"></param>
+            <param name="passwd"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Permissions.PERMISSIONID">
+            <summary>
+            PermissionID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Permissions.PERMISSIONNAME">
+            <summary>
+            PermissionName Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Permissions.CREATED">
+            <summary>
+            Created Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Permissions.MODIFIED">
+            <summary>
+            Modified Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Permissions.ACTIVED">
+            <summary>
+            Actived Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Permissions.COMMENTS">
+            <summary>
+            Comments Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.LISTID">
+            <summary>
+            LISTID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.LISTNAME">
+            <summary>
+            LISTNAME Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.ISSTRONGTYPE">
+            <summary>
+            ISSTRONGTYPE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.ISHEADOP">
+            <summary>
+            ISHEADOP Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.EDITACTION">
+            <summary>
+            EDITACTION Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.DETAILSACTION">
+            <summary>
+            DETAILSACTION Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.DELETEACTION">
+            <summary>
+            DELETEACTION Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.CONTROLLERNAME">
+            <summary>
+            CONTROLLERNAME Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.MODELTYPE">
+            <summary>
+            MODELTYPE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.KEYPROPERTY">
+            <summary>
+            KEYPROPERTY Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.DATASERVICETYPE">
+            <summary>
+            DATASERVICETYPE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.DATAMETHODNAME">
+            <summary>
+            DATAMETHODNAME Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.CREATED">
+            <summary>
+            CREATED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.MODIFIED">
+            <summary>
+            MODIFIED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.ACTIVED">
+            <summary>
+            ACTIVED Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.BOTYPE">
+            <summary>
+            BOTYPE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.ISOPVISIBLE">
+            <summary>
+            ISOPVISIBLE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.DATASQL">
+            <summary>
+            DATASQL Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.FROMCLAUSE">
+            <summary>
+            FROMCLAUSE Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericList.List.WHERECLAUSE">
+            <summary>
+            WHERECLAUSE Field 
+            </summary>
+        </member>
+        <member name="F:EasyDev.Presentation.GenericPage.resMgrFactory">
+            <summary>
+            本地化/国际化对象创建工厂
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericPage.GetDataFromUI">
+            <summary>
+            从界面元素获取数据
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericPage.OnLoad(System.EventArgs)">
+            <summary>
+            页面加载事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericPage.OnRecoveryUI">
+            <summary>
+            恢复界面事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericPage.OnInitializePage">
+            <summary>
+            初始化页面对象事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericPage.OnLoadData">
+            <summary>
+            加载数据事件 
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericPage.OnInitializeUI">
+            <summary>
+            初始化界面UI事件
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericPage.ResourceManagerCreator">
+            <summary>
+            本地化/国际化对象
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericPage.ResourceManager">
+            <summary>
+            资源管理器
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericPage.ActionFactory">
+            <summary>
+            Action工厂
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericPage.UIData">
+            <summary>
+            界面元素数据
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.IGenericDBSession.ConnectionString">
+            <summary>
+            Á¬½Ó×Ö·û´®
+            </summary>
+        </member>
+        <member name="T:EasyDev.BL.NativeServiceManager">
+            <summary>
+            本地服务管理器
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.NativeServiceManager.CreateService``1">
+            <summary>
+            创建本地服务
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.BL.NativeServiceManager.CreateService``1(System.String)">
+            <summary>
+            创建服务，并创建sessionName指定的数据库Session对象
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="sessionName">数据库会话对象</param>
+            <returns>指定类型的服务</returns>
+        </member>
+        <member name="M:EasyDev.BL.NativeServiceManager.CreateService``1(``0)">
+            <summary>
+            创建服务，并将指定服务的用户信息复制到新的服务
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="outsrv">源服务</param>
+            <returns>指定类型的服务</returns>
+        </member>
+        <member name="M:EasyDev.BL.NativeServiceManager.CreateService(System.Type)">
+            <summary>
+            实例化服务对象
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.BL.GenericBizObject`1">
+            <summary>
+            通用业务对象，用于执行常用的数据存取操作，通过内部的数据库会话对象与数据库进行交互，并将数据保存在数据集（强类型或弱类型）中。
+            另外，此对象也支持从数据库中加载视图数据，通过视图名称将通过定义视图的查询加载数据到视图数据集合中
+            </summary>
+            <remarks>此对象可被序列化</remarks>
+            <typeparam name="T">数据集类型，此类型必须由DataSet类继承</typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:EasyDev.BL.GenericBizObject`1.#ctor(`0)" -->
+        <!-- Badly formed XML comment ignored for member "M:EasyDev.BL.GenericBizObject`1.#ctor(`0,EasyDev.PL.GenericDBSession,System.String)" -->
+        <member name="M:EasyDev.BL.GenericBizObject`1.Synchronize">
+            <summary>
+            根据行状态将数据同步到数据库
+            </summary>
+            <exception cref="T:EasyDev.PL.PersistenceException">数据同步出错时将引发异常</exception>
+            <remarks>
+            数据同步方法只同步与当前业务对象相关的数据，即当前BOName对应的xsd数据集架构文件相关的数据表
+            </remarks>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.LoadAll">
+            <summary>
+            加载所有数据
+            </summary>
+            <returns>返回true则成功</returns>
+            <remarks>
+            此方法的返回值可以不用接收，因为此方法出错会抛出异常
+            </remarks>
+            <exception cref="T:EasyDev.PL.PersistenceException">加载数据出错时抛出异常</exception>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.LoadByPrimaryKey(System.Object)">
+            <summary>
+            根据主键加载数据
+            </summary>
+            <remarks>
+            此方法的返回值可以不用接收，因为此方法出错会抛出异常<br/>
+            此方法通过主键加载数据，而主键信息则包含在xsd数据集架构文件中
+            </remarks>
+            <param name="keyValue">主键值</param>
+            <exception cref="T:EasyDev.PL.PersistenceException">加载数据出错时抛出异常</exception>
+            <returns>返回true则成功</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.LoadByPrimaryKeys(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            根据主键加载数据（多主键情况）
+            </summary>
+            <param name="keyValues">多主键的主属性名称及其值组成的键值对集合</param>
+            <remarks>
+            此方法的返回值可以不用接收，因为此方法出错会抛出异常<br/>
+            此方法通过主键加载数据，而主键信息则包含在xsd数据集架构文件中<br/>
+            因为无法判断多主键情况下，多个主属性的排列顺序，所以通过IDictionary对象来传递多主键的值
+            </remarks>
+            <exception cref="T:EasyDev.PL.PersistenceException">加载数据出错时抛出异常</exception>
+            <returns>返回true时成功</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.LoadByCondition(System.String)">
+            <summary>
+            根据条件加载数据
+            </summary>
+            <param name="whereCond">条件表达式</param>
+            <exception cref="T:EasyDev.PL.PersistenceException">加载数据出错时抛出异常</exception>
+            <returns>返回true时成功</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.EnsureIdentityGenerator">
+            <summary>
+            延迟实例化主键生成器，如果在构造函数中实例化会出现覆盖的现象
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.Create">
+            <summary>
+            创建新行
+            </summary>
+            <remarks>
+            在创建新行的时候会同时处理不能为空的列，对于这些列会自动添加GUID值进行填充，在使用的时候可将其覆盖
+            </remarks>
+            <exception cref="T:EasyDev.PL.PersistenceException">加载数据出错时抛出异常</exception>
+            <returns>返回当前创建的新行</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.IsModelEmpty">
+            <summary>
+            判断业务对象数据是否为空
+            </summary>
+            <returns>返回true则数据为空</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.IsEmpty">
+            <summary>
+            判断业务对象数据是否为空
+            </summary>
+            <returns>返回true则数据为空</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.GetFirstRow">
+            <summary>
+            取得业务对象数据中的第一行
+            </summary>
+            <remarks>
+            
+            </remarks>
+            <returns>返回业务对象数据中的第一行</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.GetFirstTable">
+            <summary>
+            取得业务对象数据中的第一张表
+            </summary>
+            <returns>业务对象数据中的第一个数据表</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.Clear">
+            <summary>
+            清除业务对象数据
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.LoadViewByName(System.String)">
+            <summary>
+            根据名称打开视图
+            </summary>
+            <param name="viewName">视图名称</param>
+            <returns>视图数据</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.LoadViewByCondition(System.String,System.String)">
+            <summary>
+            根据条件打开视图
+            </summary>
+            <param name="viewName">视图名称</param>
+            <param name="cond">条件表达式</param>
+            <returns>视图数据</returns>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.RemoveFromViews(System.String)">
+            <summary>
+            从视图集合中移除视图
+            </summary>
+            <param name="viewName">视图名称</param>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.DeleteByPrimaryKey(System.Object)">
+            <summary>
+            根据主键值删除数据
+            </summary>
+            <param name="key">主键值</param>
+            <exception cref="T:EasyDev.PL.PersistenceException">删除出错时抛出异常</exception>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.DeleteByPrimaryKeys(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            多主键删除
+            </summary>
+            <param name="keys">主键键值对集合</param>
+            <exception cref="T:EasyDev.PL.PersistenceException">删除出错时抛出异常</exception>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.DeleteByCondition(System.String)">
+            <summary>
+            按条件删除
+            </summary>
+            <param name="cond">删除条件表达式</param>
+            <exception cref="T:EasyDev.PL.PersistenceException">删除出错时抛出异常</exception>
+        </member>
+        <member name="M:EasyDev.BL.GenericBizObject`1.GetNextSequenceID(System.String)">
+            <summary>
+            根据表名取得对应的最新序列码
+            </summary>
+            <param name="tableName">表名</param>
+            <remarks>
+            在数据库中要有以SEQ_[TABLENAME]命名的序列，否则会出现异常
+            </remarks>        
+            <exception cref="T:EasyDev.PL.PersistenceException">如果没有找到序列则抛出异常</exception>
+            <returns>序列值</returns>
+        </member>
+        <member name="P:EasyDev.BL.GenericBizObject`1.BOName">
+            <summary>
+            通用业务对象的名称，在服务中初始化时与服务对应的xsd数据集架构文件同名
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericBizObject`1.FullName">
+            <summary>
+            数据表全名
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericBizObject`1.Entity">
+            <summary>
+            业务对象表示的表名称
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericBizObject`1.Schema">
+            <summary>
+            数据集架构，对应配置信息中的xsd数据集架构文件名称
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericBizObject`1.CurrentSession">
+            <summary>
+            与业务对象关联的数据库会话
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericBizObject`1.Data">
+            <summary>
+            业务对象数据
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericBizObject`1.BOData">
+            <summary>
+            业务对象所包含的数据
+            </summary>
+        </member>
+        <member name="P:EasyDev.BL.GenericBizObject`1.Views">
+            <summary>
+            视图集合数据
+            </summary>
+        </member>
+        <member name="T:EasyDev.BL.GenericServiceExtension">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyDev.BL.GenericServiceExtension.Get(EasyDev.BL.GenericService,System.Linq.Expressions.Expression{System.Func{System.Data.DataRow,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="srv"></param>
+            <param name="expr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.SQMS.UserInfo.Clone">
+            <summary>
+            深度复制用户信息对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleBO.Initialize">
+            <summary>
+            创建业务对象的时候，首先要覆盖基类的Initialize方法实现模型和KeyField属性的初始化
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleBO.GetRolesByUserID(System.String)">
+            <summary>
+            根据用户ID取得指定用户所属的所有角色
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleBO.GetPermissionsOfRole(System.String)">
+            <summary>
+            取得角色所拥有的权限
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleBO.SaveAssignment(System.String,System.String)">
+            <summary>
+            保存角色分配信息
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleBO.DeleteAssignment(System.String,System.String)">
+            <summary>
+            删除角色分配信息
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleBO.UpdateAssignment(System.String,System.String)">
+            <summary>
+            更新角色分配信息
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleBO.FindAssignment(System.String,System.String)">
+            <summary>
+            查找角色分配信息
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.Security.RoleBO.Assign(System.String,System.String)">
+            <summary>
+            角色分配
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Resources.ResourceManagerFactory">
+            <summary>
+            资源管理器工厂,用于创建不同类型的资源管理器
+            </summary>
+        </member>
+        <member name="M:EasyDev.Resources.ResourceManagerFactory.GetInstance">
+            <summary>
+            创建唯一实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.ResourceManagerFactory.CreateResourceManager``1(System.String)">
+            <summary>
+            创建资源管理器
+            </summary>
+            <typeparam name="T">资源管理器的类型</typeparam>
+            <param name="name">资源配置名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.ResourceManagerFactory.CreateResourceManager``2(System.String)">
+            <summary>
+            创建资源管理器
+            此方法会先到配置文件中查找有没有对应名称的配置项，如果没有则根据类型信息自动创建资源管理器
+            </summary>
+            <typeparam name="T">资源管理器的类型</typeparam>
+            <param name="name">资源配置名称，如果在配置中找不到资源配置信息则直接创建资源管理器，直接创建的资源管理器
+            直接创建的资源管理器，其基名称为K类型所在的命名空间名称加类型名称，程序集为配置文件中Resources结点的DefaultAssembly属性值,文化区域由当前线程的设置决定</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Resources.ResourceManagerFactory.CreateResourceManager``2">
+            <summary>
+            创建资源管理器
+            </summary>
+            <typeparam name="T">资源管理器的类型</typeparam>
+            <typeparam name="K">使用资源的对象类型,以此类型的类型名称（不包含命名空间）作为资源配置名称</typeparam>
+            <returns></returns>
+        </member>
+        <member name="F:EasyDev.Presentation.GenericUserControl.resMgrFactory">
+            <summary>
+            本地化/国际化对象创建工厂
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericUserControl.GetDataFromUI">
+            <summary>
+            从界面元素获取数据
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericUserControl.OnLoad(System.EventArgs)">
+            <summary>
+            页面加载事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericUserControl.OnRecoveryUI">
+            <summary>
+            恢复界面事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericUserControl.OnInitializePage">
+            <summary>
+            初始化页面对象事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericUserControl.OnLoadData">
+            <summary>
+            加载数据事件 
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericUserControl.OnInitializeUI">
+            <summary>
+            初始化界面UI事件
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericUserControl.ResourceManagerCreator">
+            <summary>
+            本地化/国际化对象
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericUserControl.ResourceManager">
+            <summary>
+            资源管理器
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericUserControl.ActionFactory">
+            <summary>
+            Action工厂
+            </summary>
+        </member>
+        <member name="P:EasyDev.Presentation.GenericUserControl.UIData">
+            <summary>
+            界面元素数据
+            </summary>
+        </member>
+        <member name="T:EasyDev.Configuration.ResourceItemConfig">
+            <summary>
+            资源配置项
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.ResourceItemConfig.Name">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.ResourceItemConfig.Assembly">
+            <summary>
+            资源所在程序集
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.ResourceItemConfig.BaseName">
+            <summary>
+            资源基名称(不包含区域信息的名称部分)
+            </summary>
+        </member>
+        <member name="P:EasyDev.Configuration.ResourceItemConfig.Culture">
+            <summary>
+            文化区域名称
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.USERID">
+            <summary>
+            UserID Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.NAME">
+            <summary>
+            Name Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.CREATED">
+            <summary>
+            Created Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.CODE">
+            <summary>
+            Code Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.MODIFIED">
+            <summary>
+            Modified Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.EMAIL">
+            <summary>
+            Email Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.PASSWORD">
+            <summary>
+            Password Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.QUESTION">
+            <summary>
+            Question Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.ANSWER">
+            <summary>
+            Answer Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.COMMENTS">
+            <summary>
+            Comments Field 
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.Security.Users.ACTIVED">
+            <summary>
+            Actived Field 
+            </summary>
+        </member>
+        <member name="T:EasyDev.Presentation.ActionFactory">
+            <summary>
+            行为工厂
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.ActionFactory.CreateAction``1">
+            <summary>
+            创建行为
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.PL.DALCoreException">
+            <summary>
+            数据访问层异常对象
+            </summary>
+        </member>
+        <member name="T:EasyDev.PL.SqlBuilder">
+            <summary>
+            SQL´úÂëÉú³ÉÆ÷
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.BuildPrimaryColumns(System.Data.DataTable,System.Data.DataRow)">
+            <summary>
+            Éú³ÉÖ÷¼üÁÐ
+            </summary>
+            <param name="dt">Ö÷¼üËùÔÚµÄ±í</param>
+            <param name="dr">Êý¾ÝÐÐ</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.BuildPrimaryColumns(System.Data.DataRow)">
+            <summary>
+            Éú³ÉÖ÷¼üÁÐ
+            </summary>
+            <param name="dr">Êý¾ÝÐÐ</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.GetColumns(System.Data.DataTable)">
+            <summary>
+            È¡µÃ×Ö¶ÎÁÐ±í
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.BuildInsertCommand(System.String,System.Data.DataTable,System.Data.DataRow)">
+            <summary>
+            ´´½¨INSERTÓï¾ä
+            </summary>
+            <param name="fullName">INSERTÓï¾ä²Ù×÷µÄÊý¾Ý±íÃû</param>
+            <param name="dt"></param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.BuildInsertCommand(System.String,System.Data.DataRow)">
+            <summary>
+            ´´½¨INSERTÓï¾ä
+            </summary>
+            <param name="fullName">INSERTÓï¾ä²Ù×÷µÄÊý¾Ý±íÃû</param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.BuildDeleteCommand(System.String,System.Data.DataTable,System.Data.DataRow)">
+            <summary>
+            ´´½¨DELETEÓï¾ä
+            </summary>
+            <param name="fullName">DELETEÓï¾ä²Ù×÷µÄÊý¾Ý±íÃû</param>
+            <param name="dt"></param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.BuildDeleteCommand(System.String,System.Data.DataRow)">
+            <summary>
+            ´´½¨DELETEÓï¾ä
+            </summary>
+            <param name="fullName">DELETEÓï¾ä²Ù×÷µÄÊý¾Ý±íÃû</param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.BuildUpdateCommand(System.String,System.Data.DataTable,System.Data.DataRow)">
+            <summary>
+            ´´½¨UPDATEÓï¾ä
+            </summary>
+            <param name="dt">UPDATEÓï¾ä²Ù×÷µÄÊý¾Ý±íÃû</param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.SqlBuilder.BuildUpdateCommand(System.String,System.Data.DataRow)">
+            <summary>
+            ´´½¨UPDATEÓï¾ä
+            </summary>
+            <param name="fullName">UPDATEÓï¾ä²Ù×÷µÄÊý¾Ý±íÃû</param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.PL.DBSessionManager">
+            <summary>
+            Êý¾Ý¿â»á»°¹ÜÀíÆ÷£¬ÓÃÓÚÍ¨¹ýÅäÖÃ´´½¨Êý¾Ý¿â»á»°¶ÔÏó
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.DBSessionManager.CreateDBSession(EasyDev.PL.DataSourceObject)">
+            <summary>
+            ¸ù¾ÝÓÃÓÚ³õÊ¼»¯SessionManager¶ÔÏóµÄProvider²úÉúÊý¾Ý¿â»á»°¶ÔÏó
+            </summary>
+            <param name="_datasource">datasourceÃû³Æ</param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.PL.GeneratorFactory">
+            <summary>
+            主键值生成器工厂
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.GeneratorFactory.CreateGenerator``1">
+            <summary>
+            创建主键值生成器
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.PL.DataSourceObject">
+            <summary>
+            Êý¾ÝÔ´¶ÔÏó
+            <remarks>
+            Êý¾ÝÔ´¶ÔÏóÍ¨¹ýDbProviderFactory´´½¨Í¨ÓÃµÄADO.NET¶ÔÏó
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:EasyDev.PL.IDataSourceObject">
+            <summary>
+            Êý¾ÝÔ´¶ÔÏó½Ó¿Ú
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.DataSourceObject.#ctor(System.Data.Common.DbProviderFactory)">
+            <summary>
+            ¹¹Ôì·½·¨
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:EasyDev.PL.DataSourceObject.GetDBConnection">
+            <summary>
+            ´´½¨Í¨ÓÃÊý¾ÝÁ¬½Ó¶ÔÏó
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.DataSourceObject.GetDBParameter">
+            <summary>
+            ´´½¨Í¨ÓÃ²ÎÊý¶ÔÏó
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.DataSourceObject.GetDBCommand">
+            <summary>
+            ´´½¨Í¨ÓÃÃüÁî¶ÔÏó
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.DataSourceObject.GetDBCommandBuilder">
+            <summary>
+            ´´½¨Í¨¹ýÃüÁî¹¹ÔìÆ÷
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.DataSourceObject.GetDBDataAdapter">
+            <summary>
+            ´´½¨Í¨ÓÃÊý¾ÝÊÊÅäÆ÷¶ÔÏó
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.PL.DataSourceObject.ProviderName">
+            <summary>
+            Êý¾ÝÌá¹©³ÌÐòÃû³Æ
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.Attributes.RegularExpressionValidatorAttribute.#ctor(System.String,System.String)">
+            <summary>
+            正则表达式验证
+            </summary>
+            <param name="msg">错误信息</param>
+            <param name="_regExp">正则表达式</param>
+        </member>
+        <member name="M:EasyDev.EPS.Attributes.RegularExpressionValidatorAttribute.DoValidate(System.Object)">
+            <summary>
+            验证方法
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.GenericController.GetDefaultBO``1">
+            <summary>
+            获取通用业务对象
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.EPS.GenericController.GetBO``1">
+            <summary>
+            获取业务对象
+            </summary>
+            <typeparam name="TBO"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.EPS.GenericController.ID">
+            <summary>
+            获取ROUTE中的ID参数值
+            </summary>
+        </member>
+        <member name="P:EasyDev.EPS.GenericController.BOCache">
+            <summary>
+            业务对象缓存
+            </summary>
+        </member>
+        <member name="M:EasyDev.EPS.AuthenticationController.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            Action执行前处理
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:EasyDev.Util.StreamUtil.QuickStreamReader(System.IO.Stream,System.Boolean)">
+            <summary>
+            ¿ìËÙÁ÷¶ÁÈ¡
+            </summary>
+            <param name="stream">°üº¬Êý¾ÝµÄÁ÷¶ÔÏó</param>
+            <param name="isCloseStream">¶ÁÍêÊý¾ÝºóÊÇ·ñ¹Ø±ÕÁ÷</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.StreamUtil.QuickStreamReaderWithBase64(System.IO.Stream,System.Boolean)">
+            <summary>
+            ´ÓÁ÷ÖÐ¶ÁÈ¡Êý¾Ý²¢½øÐÐBASE64±àÂë
+            </summary>
+            <param name="stream">°üº¬Êý¾ÝµÄÁ÷¶ÔÏó</param>
+            <param name="isCloseStream">¶ÁÍêÊý¾ÝºóÊÇ·ñ¹Ø±ÕÁ÷</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.StreamUtil.QuickStreamReaderWithUTF8Encoded(System.IO.Stream,System.Boolean)">
+            <summary>
+            ´ÓÁ÷ÖÐ¶ÁÈ¡Êý¾Ý²¢½øÐÐUTF8±àÂë
+            </summary>
+            <param name="stream">°üº¬Êý¾ÝµÄÁ÷¶ÔÏó</param>
+            <param name="isCloseStream">¶ÁÍêÊý¾ÝºóÊÇ·ñ¹Ø±ÕÁ÷</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.StreamUtil.QuickStreamWriter(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            ¿ìËÙÁ÷Ð´ÈëÆ÷
+            </summary>
+            <param name="stream">ÒªÐ´ÈëÊý¾ÝµÄ»ù´¡Á÷¶ÔÏó</param>
+            <param name="data">ÒªÐ´ÈëµÄÊý¾Ý</param>
+            <param name="isCloseStream">ÊÇ·ñ¹Ø±ÕÁ÷¶ÔÏó</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.StreamUtil.QuickStreamWriter(System.IO.Stream,System.Byte[],System.Boolean)">
+            <summary>
+            ¿ìËÙÁ÷Ð´ÈëÆ÷
+            </summary>
+            <param name="stream">ÒªÐ´ÈëÊý¾ÝµÄ»ù´¡Á÷¶ÔÏó</param>
+            <param name="data">ÒªÐ´ÈëµÄÊý¾Ý</param>
+            <param name="isCloseStream">ÊÇ·ñ¹Ø±ÕÁ÷¶ÔÏó</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.SerializeUtil.SerializeToXML(System.Object,System.Type)">
+            <summary>
+            ÊµÏÖ´Ó¶ÔÏóµ½XML´®µÄÐòÁÐ»¯
+            </summary>
+            <param name="o"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.SerializeUtil.SerializeToBinaryString(System.Object)">
+            <summary>
+            ÊµÏÖ´Ó¶ÔÏóµ½¶þ½øÖÆ´®µÄÐòÁÐ»¯
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.SerializeUtil.SerializeToLOSString(System.Object)">
+            <summary>
+            ÊµÏÖ´Ó¶ÔÏóµ½LOS´®µÄÐòÁÐ»¯ 
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.SerializeUtil.DeserializeFromXMLStream(System.IO.Stream,System.Type)">
+            <summary>
+            ´ÓÁ÷ÖÐ·´ÐòÁÐ»¯XMLÊý¾Ý
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+            <param name="type"></param>
+        </member>
+        <member name="M:EasyDev.Util.SerializeUtil.DeserializeFromLOSStream(System.IO.Stream)">
+            <summary>
+            ´ÓÁ÷ÖÐ·´ÐòÁÐ»¯LOSÊý¾Ý
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.SerializeUtil.DeserializeFromLOSString(System.String)">
+            <summary>
+            ½«LOSÊý¾Ý·´ÐòÁÐ»¯Îª¶ÔÏó
+            </summary>
+            <param name="losString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.SerializeUtil.DeserializeFromBinaryStream(System.IO.Stream)">
+            <summary>
+            ´ÓÁ÷ÖÐ·´Ðò»¯¶þ½øÖÆ´®Êý¾Ý
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.DataSetUtil.GetDataTableFromDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            获取数据集中的数据表
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.DataSetUtil.GetDataTableFromDataSet(System.Data.DataSet,System.Int32)">
+            <summary>
+            获取数据集中的数据表
+            </summary>
+            <param name="dsFrom">源数据集</param>
+            <param name="index">数据表索引</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.DataSetUtil.GetFirstRowFromDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            获取数据集中某数据表的第一行
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.DataSetUtil.GetFirstRowFromDataTable(System.Data.DataTable)">
+            <summary>
+            获取数据表中的第一行
+            </summary>
+            <param name="dtFrom">数据表</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.DataSetUtil.GetSingleRowFromDataSet(System.Data.DataSet,System.String,System.Int32)">
+            <summary>
+            获取数据集中的一行
+            </summary>
+            <param name="dsFrom">数据集</param>
+            <param name="tableName">数据表名称</param>
+            <param name="rowNum">行号</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Util.DataSetUtil.GetSingleRowFromDataTable(System.Data.DataTable,System.Int32)">
+            <summary>
+            获取数据表中的一行
+            </summary>
+            <param name="dtFrom">数据表</param>
+            <param name="rowNum">行号</param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.PL.GenericDBSession">
+            <summary>
+            Êý¾Ý¿âÁ¬½ÓµÄ¹«¹²»ùÀà
+            </summary>
+        </member>
+        <member name="F:EasyDev.PL.GenericDBSession.dataSourceName">
+            <summary>
+            Êý¾ÝÔ´Ãû³Æ
+            </summary>
+        </member>
+        <member name="F:EasyDev.PL.GenericDBSession.connectionString">
+            <summary>
+            Á¬½Ó×Ö·û´® 
+            </summary>
+        </member>
+        <member name="F:EasyDev.PL.GenericDBSession._transaction">
+            <summary>
+            Êý¾Ý¿âÊÂÎñ¶ÔÏó
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.#ctor(EasyDev.PL.DataSourceObject,EasyDev.Configuration.PersistenceConfigManager)">
+            <summary>
+            ¹¹Ôì·½·¨
+            </summary>
+            <param name="_datasource"></param>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.OpenSession">
+            <summary>
+            ¿ªÆôÊý¾Ý¿âÁ¬½Ó»á»°
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.OpenSession(System.Boolean)">
+            <summary>
+            ¿ªÆôÊý¾Ý¿â»á»°
+            </summary>
+            <param name="withTrans">ÎªTRUE±íÊ¾ÔÚ¿ªÆô»á»°µÄÊ±ºòÍ¬Ê±¿ªÊ¼ÊÂÎñ</param>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.PrepareParameterizedCommand(System.String,System.Object[])">
+            <summary>
+            ÉèÖÃ²ÎÊý»¯²éÑ¯ÃüÁî
+            </summary>
+            <param name="commandText">²ÎÊý»¯ÃüÁî</param>
+            <param name="paramValues">²ÎÊýÖµÁÐ±í</param>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.PrepareParameterizedCommand(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            ÉèÖÃ²ÎÊý»¯²éÑ¯ÃüÁî
+            </summary>
+            <param name="commandText"></param>
+            <param name="paramValues"></param>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.CloseSession">
+            <summary>
+            ¹Ø±ÕÊý¾Ý¿â»á»°
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.CommitTransaction">
+            <summary>
+            Ìá½»ÊÂÎñ
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.RollBackTransaction">
+            <summary>
+            »Ø¹öÊÂÎñ
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.ExecuteCommand(System.String)">
+            <summary>
+            Ö´ÐÐSQLÃüÁî
+            </summary>
+            <returns>SQLÃüÁîÓ°ÏìÐÐÊý</returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.ExecuteCommand(System.String,System.Object[])">
+            <summary>
+            Ö´ÐÐ²ÎÊý»¯²éÑ¯£¬Èç¹ûÃüÁîÖÐ²»´ø²ÎÊýÔòÅ×³öArgumentExceptionÒì³£
+            </summary>
+            <param name="sqlCmd">²ÎÊý»¯ÃüÁî</param>
+            <param name="values">²ÎÊýÖµÁÐ±í</param>
+            <returns>ÊÜÓ°ÏìµÄÐÐÊý</returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.ExecuteCommand(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Ö´ÐÐ²ÎÊý»¯²éÑ¯£¬Èç¹ûÃüÁîÖÐ²»´ø²ÎÊýÔòÅ×³öArgumentExceptionÒì³£
+            </summary>
+            <param name="sqlCmd"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.ExecuteCommand">
+            <summary>
+            Ö´ÐÐSQLÃüÁî
+            </summary>
+            <returns>SQLÃüÁîÓ°ÏìÐÐÊý</returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataReaderFromCommand(System.String)">
+            <summary>
+            ¸ù¾ÝSQLÃüÁîµÃµ½Ò»¸öÊý¾Ý¼ÇÂ¼ÓÎ±ê
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataReader">
+            <summary>
+            ¸ù¾ÝÃüÁî¶ÔÏóµÃµ½Ò»¸öÊý¾Ý¼ÇÂ¼ÓÎ±ê
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataReaderFromCommand">
+            <summary>
+            ¸ù¾ÝÃüÁî¶ÔÏóµÃµ½Ò»¸öÊý¾Ý¼ÇÂ¼ÓÎ±ê
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetScalarObjectFromCommand(System.String)">
+            <summary>
+            È¡µÃ½á¹û¼¯ÖÐµÚÒ»ÐÐµÚÒ»ÁÐµÄÖµ£¬ÒÔ¶ÔÏóÀàÐÍ·µ»Ø
+            </summary>
+            <param name="sqlCmd">SQLÃüÁîÎÄ±¾</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetScalarObject">
+            <summary>
+            È¡µÃ½á¹û¼¯ÖÐµÚÒ»ÐÐµÚÒ»ÁÐµÄÖµ£¬ÒÔ¶ÔÏóÀàÐÍ·µ»Ø
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetScalarObjectFromCommand">
+            <summary>
+            È¡µÃ½á¹û¼¯ÖÐµÚÒ»ÐÐµÚÒ»ÁÐµÄÖµ£¬ÒÔ¶ÔÏóÀàÐÍ·µ»Ø
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetScalarObjectFromCommand(System.String,System.Object[])">
+            <summary>
+            ²ÎÊý»¯²éÑ¯£ºÈ¡µÃ½á¹û¼¯ÖÐµÚÒ»ÐÐµÚÒ»ÁÐµÄÖµ£¬ÒÔ¶ÔÏóÀàÐÍ·µ»Ø
+            </summary>
+            <param name="sqlCmd">´ø²ÎÊýµÄSQL</param>
+            <param name="paramValues">²ÎÊýÖµ</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataSetFromCommand(System.String)">
+            <summary>
+            »ñÈ¡Êý¾Ý¼¯
+            </summary>
+            <param name="sqlCmd">SQLÃüÁîÎÄ±¾</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataSet">
+            <summary>
+            »ñÈ¡Êý¾Ý¼¯
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataSetFromCommand">
+            <summary>
+            »ñÈ¡Êý¾Ý¼¯
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataSetFromCommand(System.String,System.Object[])">
+            <summary>
+            »ñÈ¡Êý¾Ý¼¯
+            </summary>
+            <param name="sqlCmd">²ÎÊý»¯²éÑ¯</param>
+            <param name="paramValues">²ÎÊýÖµ</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataTable">
+            <summary>
+            »ñÈ¡Êý¾Ý±í
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataTableFromCommand">
+            <summary>
+            »ñÈ¡Êý¾Ý±í
+            </summary>
+            <param name="command">ÃüÁî¶ÔÏó</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataTableFromCommand(System.String)">
+            <summary>
+            »ñÈ¡Êý¾Ý±í
+            </summary>
+            <param name="sqlCmd">ÃüÁîÎÄ±¾</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetDataTableFromCommand(System.String,System.Object[])">
+            <summary>
+            »ñÈ¡Êý¾Ý±í
+            </summary>
+            <param name="sqlCmd">²ÎÊý»¯²éÑ¯ÃüÁî</param>
+            <param name="paramValues">²ÎÊýÖµ</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.BeginTransaction">
+            <summary>
+            ¿ªÆôÊý¾Ý¿âÊÂÎñ
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.GenericDBSession.GetNextID(System.String)">
+            <summary>
+            È¡µÃÏÂÒ»¸öÐòÁÐ
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyDev.PL.GenericDBSession.IdentityGenerator">
+            <summary>
+            Ö÷¼üÖµÉú³ÉÆ÷
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.GenericDBSession.DataSource">
+            <summary>
+            Êý¾ÝÔ´¶ÔÏó
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.GenericDBSession.CurrentDbProvider">
+            <summary>
+            µ±Ç°Ê¹ÓÃµÄÊý¾Ý¿âÌá¹©³ÌÐò
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.GenericDBSession.ConnectionString">
+            <summary>
+            Á¬½Ó×Ö·û´®
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.GenericDBSession.DataAdapter">
+            <summary>
+            Êý¾ÝÊÊÅäÆ÷
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.GenericDBSession.Connection">
+            <summary>
+            ·µ»ØÊý¾Ý¿âÁ¬½Ó
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.GenericDBSession.Command">
+            <summary>
+            Í¨ÓÃÊý¾ÝÃüÁî¶ÔÏó
+            </summary>
+        </member>
+        <member name="P:EasyDev.PL.GenericDBSession.SessionState">
+            <summary>
+            È¡µÃÊý¾Ý¿â»á»°×´Ì¬
+            </summary>
+        </member>
+        <member name="T:EasyDev.PL.ADOExtension">
+            <summary>
+            ADO对像扩展方法
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.BuildPrimaryColumns(System.Data.DataTable,System.Data.DataRow)">
+            <summary>
+            生成主键列
+            </summary>
+            <param name="dt">主键所在的表</param>
+            <param name="dr">数据行</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.BuildPrimaryColumns(System.Data.DataRow)">
+            <summary>
+            生成主键列
+            </summary>
+            <param name="dr">数据行</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.GetColumns(System.Data.DataTable)">
+            <summary>
+            取得字段列表
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.InsertCommandText(System.Data.DataTable,System.Data.DataRow,System.String)">
+            <summary>
+            创建INSERT语句
+            </summary>
+            <param name="fullName">INSERT语句操作的数据表名</param>
+            <param name="dt"></param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.InsertCommandText(System.Data.DataRow,System.String)">
+            <summary>
+            创建INSERT语句
+            </summary>
+            <param name="fullName">INSERT语句操作的数据表名</param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.DeleteCommandText(System.Data.DataTable,System.Data.DataRow,System.String)">
+            <summary>
+            创建DELETE语句
+            </summary>
+            <param name="fullName">DELETE语句操作的数据表名</param>
+            <param name="dt"></param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.DeleteCommandText(System.Data.DataRow,System.String)">
+            <summary>
+            创建DELETE语句
+            </summary>
+            <param name="fullName">DELETE语句操作的数据表名</param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.UpdateCommandText(System.Data.DataTable,System.Data.DataRow,System.String)">
+            <summary>
+            创建UPDATE语句
+            </summary>
+            <param name="dt">UPDATE语句操作的数据表名</param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.ADOExtension.UpdateCommandText(System.Data.DataRow,System.String)">
+            <summary>
+            创建UPDATE语句
+            </summary>
+            <param name="fullName">UPDATE语句操作的数据表名</param>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.Common.ExceptionLevel">
+            <summary>
+            异常级别
+            </summary>
+        </member>
+        <member name="T:EasyDev.Security.UserAuthentication">
+            <summary>
+            用户验证对象
+            </summary>
+        </member>
+        <member name="M:EasyDev.Security.UserAuthentication.CheckIn(System.Collections.IDictionary)">
+            <summary>
+            用户签入
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EasyDev.Security.UserAuthentication.CheckOut">
+            <summary>
+            用户签出
+            </summary>
+        </member>
+        <member name="M:EasyDev.Security.UserAuthentication.Authentication(System.String,System.String,System.String)">
+            <summary>
+            验证某用户对某资源是否有某种操作类型的权限
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="resourceId">资源ID</param>
+            <param name="operationId">操作ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Security.UserAuthentication.Authentication(System.String,System.String)">
+            <summary>
+            验证某用户对某资源是否有任一操作类型的权限
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="resourceId">资源ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericAction.InitializeAction">
+            <summary>
+            初始化Action
+            </summary>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericAction.OnSave(System.Data.DataSet,EasyDev.Presentation.GenericAction.OnSaveCallbackHandler)">
+            <summary>
+            保存处理方法，此方法会触发保存前处理事件和保存后处理事件
+            </summary>
+            <param name="ds">要保存的数据集</param>
+            <param name="callback">保存处理方法代理</param>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericAction.OnDelete(System.Data.DataSet,EasyDev.Presentation.GenericAction.OnDeleteCallbackHander)">
+            <summary>
+            删除处理方法，此方法会触发删除前处理事件和删除后处理事件
+            </summary>
+            <param name="ds">要删除的数据</param>
+            <param name="delete">删除处理方法代理</param>
+        </member>
+        <member name="M:EasyDev.Presentation.GenericAction.OnLoadByPrimary(System.Object,EasyDev.Presentation.GenericAction.OnLoadByPrimaryCallbackHandler)">
+            <summary>
+            加载数据处理方法
+            </summary>
+            <param name="ds"></param>
+            <param name="load"></param>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericAction.Loaded">
+            <summary>
+            加载数据后处理事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericAction.Loading">
+            <summary>
+            加载数据后处理事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericAction.Deleted">
+            <summary>
+            删除后处理事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericAction.Deleting">
+            <summary>
+            删除前处理事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericAction.Saving">
+            <summary>
+            保存前处理事件
+            </summary>
+        </member>
+        <member name="E:EasyDev.Presentation.GenericAction.Saved">
+            <summary>
+            保存后处理事件
+            </summary>
+        </member>
+        <member name="T:EasyDev.PL.IdentityGenerator">
+            <summary>
+            Éú³ÉÖ÷¼üÖµµÄ·½·¨
+            </summary>
+        </member>
+        <member name="M:EasyDev.PL.IdentityGenerator.GUIDIdentity">
+            <summary>
+            Éú³ÉGUID×÷ÎªÊµÌå±êÊ¶
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.PL.IdentityGenerator.GetNextSequenceId(EasyDev.PL.GenericDBSession,System.String)">
+            <summary>
+            Éú³ÉORACLEÊý¾Ý±í¶ÔÓ¦µÄSEQUENCE
+            </summary>
+            <param name="session"></param>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyDev.DAL.GenericDBFactory">
+            <summary>
+            Êý¾Ý¿âÁ¬½Ó¹ÜÀíÆ÷
+            </summary>
+        </member>
+        <member name="F:EasyDev.DAL.GenericDBFactory._lockHelper">
+            <summary>
+            Í¬²½Ëø¶ÔÏó
+            </summary>
+        </member>
+        <member name="F:EasyDev.DAL.GenericDBFactory._instance">
+            <summary>
+            ¹ÜÀíÆ÷ÊµÀý
+            </summary>
+        </member>
+        <member name="M:EasyDev.DAL.GenericDBFactory.GetInstance">
+            <summary>
+            È¡µÃ¹ÜÀíÆ÷ÊµÀý
+            </summary>
+        </member>
+        <member name="M:EasyDev.DAL.GenericDBFactory.CreateDBSession``1">
+            <summary>
+            (·ºÐÍ·½·¨) ´´½¨DBSession¶ÔÏó£¬Õâ¸ö¶ÔÏó±ØÐëÊµÏÖIDBSession½Ó¿Ú£¬²¢ÇÒSession¶ÔÏó±ØÐëÒªÓÐÎÞ²ÎÊýµÄ¹«¹²¹¹Ôìº¯Êý
+            </summary>
+            <typeparam name="T">·ºÐÍÀàÐÍ</typeparam>
+            <param name="dataSourceName">Î»ÓÚÅäÖÃÎÄ¼þÖÐµÄÊý¾ÝÔ´Ãû³Æ</param>
+            <returns>¶ÔÓ¦·ºÐÍÀàÐÍµÄÊµÀý»¯¶ÔÏó</returns>
+        </member>
+        <member name="M:EasyDev.DAL.GenericDBFactory.CreateDBSession``1(System.String,EasyDev.DAL.AssemblyNameSource)">
+            <summary>
+            ¸ù¾Ý³ÌÐò¼¯Ãû³Æ¶¯Ì¬¼ÓÔØ³ÌÐò¼¯²¢ÇÒÊµÀý»¯Êý¾Ý·ÃÎÊ¶ÔÏó
+            Êý¾Ý¼¯ÖÐµÄÊý¾Ý·ÃÎÊ¶ÔÏó±ØÐëÊµÏÖIDBSession½Ó¿Ú
+            </summary>
+            <typeparam name="T">·ºÐÍÀàÐÍ</typeparam>
+            <param name="name">³ÌÐò¼¯Ãû³Æ</param>
+            <param name="source">³ÌÐò¼¯Ãû³ÆÀàÐÍ(Ãû³Æ×Ö·û´®£¬ÅäÖÃ×Ö·û´®)</param>
+            <returns>¶ÔÓ¦·ºÐÍÀàÐÍµÄÊµÀý»¯¶ÔÏó</returns>
+        </member>
+        <member name="M:EasyDev.DAL.GenericDBFactory.CreateDBSession(System.String)">
+            <summary>
+            ¸ù¾ÝÀàÐÍ´®Éú³ÉÊý¾Ý¿â»á»°¶ÔÏó
+            </summary>
+            <param name="type">ÀàÐÍ´®</param>
+            <returns>·µ»ØIDBSessionÀàÐÍ¶ÔÏó</returns>
+        </member>
+        <member name="M:EasyDev.DAL.GenericDBFactory.CreateDBSession``1(System.String,System.String)">
+            <summary>
+            ÀûÓÃ·´Éä´´½¨Êý¾Ý·ÃÎÊ¶ÔÏó
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="assemblyName">³ÌÐò¼¯Ãû³Æ</param>
+            <param name="typeName">ÀàÐÍÃû³Æ</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyDev.DAL.GenericDBFactory.CreateDBSessionByConfig``1(System.String)">
+            <summary>
+            ¸ù¾ÝWeb.ConfigÖÐµÄÊý¾ÝÁ¬½Ó×Ö·û´®´´½¨Êý¾Ý¿â»á»°¶ÔÏó
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cfgName">ÅäÖÃÓÚweb.configÎÄ¼þÖÐAppSetting½ÚµÄÊý¾Ý¿âÁ¬½Ó´®</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
