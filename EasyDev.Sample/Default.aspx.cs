@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EasyDev.BL.Services;
 
 namespace EasyDev.Sample
 {
@@ -11,7 +12,8 @@ namespace EasyDev.Sample
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            ServicePool sp = ServicePool.GetInstance();
+
         }
     }
 }

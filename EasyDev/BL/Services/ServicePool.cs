@@ -5,6 +5,9 @@ using System.Text;
 using System.Configuration;
 using System.Reflection;
 using System.Web;
+using System.Data;
+using System.Xml.Linq;
+using System.Linq;
 
 namespace EasyDev.BL.Services
 {
@@ -13,10 +16,41 @@ namespace EasyDev.BL.Services
     /// </summary>
     public class ServicePool
     {
+        private string configPath = string.Empty;
+        private DataTable dtServices = new DataTable("Services");
+        private IDictionary<string, string> services = new Dictionary<string, string>();
+
+        public static ServicePool GetInstance()
+        {
+            return new ServicePool();
+        }
+
+        protected ServicePool()
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected virtual void Initialize()
+        {
+            this.configPath = AppDomain.CurrentDomain.BaseDirectory + @"Config\\EasyDev.ServicePool.Config";
+            XDocument doc = XDocument.Load(this.configPath);
+            IEnumerable<XElement> nodes = doc.Elements()
+                .Elements()
+                .Elements();
+
+            foreach (XElement item in nodes)
+            {
+                services.Add(item.Attribute("Name").Value, item.Attribute("Type").Value);
+            }
+        }
+
         /// <summary>
         /// 从指定的程序集将服务加载到缓存
         /// </summary>
-        public static void LoadServices()
+        public void LoadServices()
         {
             IDictionary<string, IService> services = new Dictionary<string, IService>();
             string[] assemblyName = 
@@ -44,7 +78,7 @@ namespace EasyDev.BL.Services
         /// </summary>
         /// <param name="key">服务的完全限定名</param>
         /// <returns></returns>
-        public static IService FetchService(string key)
+        public IService FetchService(string key)
         {
             IDictionary<string, IService> services = 
                 HttpRuntime.Cache.Get("SERVICE_GALLERY") as IDictionary<string, IService>;
