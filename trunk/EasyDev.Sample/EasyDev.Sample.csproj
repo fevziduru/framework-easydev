@@ -82,6 +82,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Config\Schema\" />
+    <Folder Include="Resources\CSS\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\Scripts\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
